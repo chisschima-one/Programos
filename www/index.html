@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="css/onsenui.css">
+    <link rel="stylesheet" href="css/onsen-css-components.css">
+    <link rel="stylesheet" href="css/signup.css">
+ <script type="text/javascript" src="cordova.js"></script>
+   <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>    
+    <script src="js/angular/angular.js"></script>
+    <script src="js/onsenui.js"></script>
+      <script src="js/index.js"></script>
+      <script src="js/main.js"></script>
+    <script>
+      ons.bootstrap();
+    </script>
+
+  </head>
+  <body>
+<!------    Sign in page  -------->
+<ons-modal var="modal">
+  <ons-icon icon="ion-load-c" spin="true"></ons-icon>
+
+</ons-modal>
+  
+ <ons-template id="alert-dialog.html">
+  <ons-alert-dialog var="alertDialog">
+    <div class="alert-dialog-title"><strong style="color: #ff3333">Critical Alert!</strong></div>
+    <div class="alert-dialog-content">
+      An error has occurred!
+    </div>
+    <div class="alert-dialog-footer">
+      <button class="alert-dialog-button" ng-click="alertDialog.hide(); alertDialog.show()">OK</button>
+    </div>
+  </ons-alert-dialog>
+</ons-template>
+      
+      <ons-navigator title="Navigator" var="myNavigator">
+    <ons-page > 
+      <ons-toolbar>
+       
+        <div class="center">Sign in</div>
+      </ons-toolbar>
+ 
+      
+      
+      <div class="formarea" >
+        <div class="form-row" >
+          <input id="un"  type="text" class="text-input--underbar width-full" placeholder="Username" value="">
+          
+        </div>
+          <div class="form-row">
+            <input id="pw" type="password" class="text-input--underbar width-full" placeholder="Password" value="" style="border-width-left: 1px">
+          </div>
+
+        <div class="lucent" align="center">
+          <p class="note">Password - 6 characters or more</p>
+        </div>
+
+        <div class="vspc form-row">
+          <ons-button modifier="large--cta" onclick="loading()" >Submit</ons-button>
+        </div>
+      </div>
+ </ons-page>
+      </ons-navigator>
+<!------    Sign in page  ENDS -------->  
+
+  </body>
+</html>
