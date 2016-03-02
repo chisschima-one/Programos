@@ -2,10 +2,14 @@
  
  ons.ready(function() {
            ons.createAlertDialog('alert-dialog.html').then(function(alertDialog) {
-            alertDialog.show();
+            
+               
+          });
+      ons.createAlertDialog('alert-dialogSE.html').then(function(alertDialogSE) {
+            alertDialogSE.show();
           });
                 
-        });
+ });
 
 
  $(document.body).on("pageinit", '#my-signIn', function() {
@@ -16,9 +20,9 @@
 
 
          $(document.body).on("pageinit", '#my-page', function() {
-alert("SDsD ");
+
              
-             alertDialog.show();
+            
 
             $("#homebtn").click(function(){
 
@@ -32,15 +36,48 @@ alert("SDsD ");
 
 
       $(document).ready(function(){
-
+            showSE();
                $("#un").val("");
                $("#pw").val("");
      
         });
 
+function showSE(){
+    
+    
+}
+function  showSigIn(){
+    alertDialog.show();
+}
 
+function displayNSE(){
+    loadingNSE();
+}
+function displayGSE(){
+    loadingGSE();
+}
 
+function loadingNSE(){
+    
+    modal.show();
+    //Do Something Here.................
+    setTimeout('modal.hide()',2000);
+    setTimeout('alertDialogSE.destroy()',2000);
+}
+function loadingGSE(){
+    
+    modal.show();
+    //Do Something Here.................
+    setTimeout('modal.hide()',2000);
+    setTimeout('alertDialogSE.destroy()',2000);
+}
+
+function showSigIn(){
+    alertDialog.show();
+}
 function loading(){
+    
+    
        var un = $("#un").val();
        var pw = $("#pw").val();
       modal.show();
@@ -60,7 +97,6 @@ function loading(){
        }else{error();}
      
  }
-
 function login(){
     alertDialog.destroy();
   var options = 
@@ -86,3 +122,5 @@ function error(){
     
     
 }
+
+

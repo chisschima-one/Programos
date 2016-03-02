@@ -3585,7 +3585,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   right: 0;
   left: 0;
   bottom: 0;
-  background-color:#1A1A1A;
+  background-color: rgba(26, 26, 26, 0.99);
     /* rgba(0,0,0,0.2)8*/
 }
 /* topdoc

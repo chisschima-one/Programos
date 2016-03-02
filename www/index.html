@@ -9,7 +9,7 @@
          <link rel="stylesheet" href="css/list_avatars.css">
          <link rel="stylesheet" href="css/signup.css">
          <!----- Script reference ------->        
-     <!--<script type="text/javascript" src="cordova.js"></script>-->
+     <!-- <script type="text/javascript" src="cordova.js"></script>---->
     <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
     <script src="js/angular/angular.js"></script>
     <script src="js/onsenui.js"></script>
@@ -17,11 +17,7 @@
     <script src="js/main.js"></script>
     <script>
     ons.bootstrap();
-        ons.ready(function() {
-  ons.createDialog('dialogcontent.html').then(function(dialog) {
-    dialog.show();
-  });
-});
+
     </script>
         
  
@@ -43,11 +39,12 @@
     </ons-template>
     
     
-<!----- page 1 stuffs ------>
+<!----- MKT stuffs ------>
     
     
     <ons-template id="Markets.html">
-<ons-navigator title="Navigator" var="myNavigator">
+        
+            <ons-navigator title="Navigator" var="myNavigator">
                 <ons-page id="my-page">
 
                     <ons-toolbar>
@@ -66,13 +63,13 @@
                         </div>
                         
                     </ons-toolbar>
-  <div class="navigation-bar">
-          <div class="navigation-bar__center">
+              <!--<div class="navigation-bar">
+                      <div class="navigation-bar__center">
 
-            <input type="search" class="search-input" style="width: 96%; margin: 6px auto 6px auto;" placeholder="Broker name here......">
-          </div>
-                
-        </div>
+                        <input type="search" class="search-input" style="width: 96%; margin: 6px auto 6px auto;" placeholder="Broker name here......">
+                      </div>
+
+                    </div>--->
                 <!--<p style="text-align: center; color: #999; padding-top: 100px;">Page1 Contents</p>-->
                         
                           <!--<ons-list>
@@ -138,10 +135,13 @@
                   
               </ons-page>
         </ons-navigator>
-    </ons-template><!----- page 1 stuffs END ------>
+    </ons-template>
+<!----- MKT stuffs END ------>
     
     
-            <ons-template id="listdesp.html">
+    
+     <!---       <ons-template id="listdesp.html">
+
                   <ons-page>
                     <ons-toolbar>
                               <div class="left" style="line-height: 44px; width: 13%;">
@@ -166,7 +166,7 @@
                                   </div>  
                                 </div>
 
-                                <!---->
+                               
 
                     
                       </ons-toolbar>
@@ -174,9 +174,7 @@
 
                        <div style="background-color: rgba(66, 66, 66, 0);background-image: url(img/bg2.png);background-size: 24%;width:100%;height: 154px;padding-top: 24px;" align="center">
                             <img src="img/download.png" width="100px" style="margin-top:1%;"/>
-                           <!--<div class="center" style="background-color: #fafafa;border-radius: 84px;box-shadow: 0px 0px 28px 2px rgba(0, 0, 0, 0.82);width: 130px;height: 130px;border-style: outset;border-color: #ccc;">
-                               
-                            </div>-->
+                           
                       </div>
                      <div style="width:100%;height: 2%;background-color: #D87800;box-shadow: 0px -3px 8px 1px rgba(0, 0, 0, 0.71);"></div>
                      <div style="width:100%;height:100%;box-shadow: 0px -1px 8px 1px #000;border-top-style: double;border-top-color: rgba(250, 250, 250, 0.6);">
@@ -186,10 +184,11 @@
 
 
                   </ons-page>
-            </ons-template>
+            </ons-template>--->
     
-    <!----- page 2 stuffs ------>
+<!----- News stuffs ------>
     <ons-template id="News.html">
+        
       <ons-page>
         <ons-toolbar>
           <div class="left">
@@ -209,12 +208,11 @@
           </ons-list>
       </ons-page>
     </ons-template>
-<!----- page 2 stuffs ENDS ------>
+<!----- News stuffs ENDS ------>
     
     
- <ons-template id="search.html">
-     
-          <ons-page>
+ <!--<ons-template id="search.html">   <ons-page>
+
             <ons-toolbar>
               <div class="left" style="line-height: 44px;">
                 <ons-toolbar-button onclick="menu.setMainPage('Markets.html', {closeMenu: true})">
@@ -228,13 +226,12 @@
                 </div>
               <div class="right">
             <ons-toolbar-button>
-             <!-- <ons-icon icon="ion-plus" fixed-width="false" style="vertical-align: -4px;"></ons-icon> -->
+            
                 
                 
             </ons-toolbar-button>
           </div>
-                <!---->
-
+                
             </ons-toolbar>
             <div class="navigation-bar">
           <div class="navigation-bar__center">
@@ -244,23 +241,27 @@
                 
         </div>
           </ons-page>
-</ons-template>
-    
-    
-    
-    
+</ons-template>--->
     
     
     <!--------- side menu stuffs --------->
     
     <ons-template id="menu.html">
+        
         <div class="center" style="">
             
             <div class="center" style="background-color: #FFF;border-radius: 34px;width: 60px;height: 60px;margin: 7px;">
                 <img src="img/logo.png" width="40px" style="margin-left: 9px;margin-top: 11px;">
-                <div style="position: relative;top: -60px;left: 74px;width: 110px;">
-                <div style="font-size: 20px;margin:0px;">Company</div>
-                <div style="font-size: 14px;font-weight: 100;margin: 2px 0px;width: 169px;height: 67px;color: #B7B6B6;">Programmos Limited Nigeria</div>
+                <div id="pg_customerNotIN" style="position: relative;top: -60px;left: 74px;width: 160px;">
+                <ons-button modifier="large--cta" onclick="showSigIn()" >Sign In</ons-button>
+                    
+                
+                </div>
+                <div id="pg_customerLoggedin" style="position: relative;top: -60px;left: 74px;width: 110px;display:none;">
+
+                    <div style="font-size: 20px;margin:0px;">Company</div>
+                    <div style="font-size: 14px;font-weight: 100;margin: 2px 0px;width: 169px;height: 67px;color: #B7B6B6;">Programmos Limited Nigeria</div>
+                    
                 </div>
             </div>
         </div>
@@ -293,10 +294,13 @@
         </ons-list-item>
           
       </ons-list>
-    </ons-template>  <!--------- side menu stuffs END --------->
+    </ons-template>  
+    
+    <!--------- side menu stuffs END --------->
     
     
      <!---
+
         <ons-page>
           <ons-toolbar>
             <div class="left"><ons-back-button>Back</ons-back-button></div>
@@ -329,10 +333,39 @@
         </ons-page>        --->
 
 
+    <!---- Choose Stock Exchange  stuff  ------->
+    <ons-template id="alert-dialogSE.html">
+     
+  <ons-alert-dialog var="alertDialogSE" style="width: 130%; height: 50%; z-index: 20001; border-radius: 0px; display: block;background-color: #242424; background-size: 17%;">
+     <ons-toolbar >
+       
+        <div class="center">Choose Your Exchange</div>
+      </ons-toolbar>
+    
+      
+     
+
+    <!--<div class="alert-dialog-title"><strong style="color: #ff3333">Critical Alert!</strong></div>-->
+    <div  style="margin-top: 65px;" class="alert-dialog-content">
+      
+         <ons-button modifier="large--cta" onclick="displayNSE()" >NSE</ons-button><br>
+         <ons-button modifier="large--cta" onclick="displayGSE()" >GSE</ons-button>
+        
+    </div>
+   <!-- <div class="alert-dialog-footer">
+      <button class="alert-dialog-button" ng-click="alertDialog.hide(); alertDialog.show()">OK</button>
+    </div>-->
+  </ons-alert-dialog>
+</ons-template>
+    
+    <!---- Choose Stock Exchange  stuff  ------->
     
     
-    <!------    Sign in page  -------->
+    
+    
+ <!------    Sign in page  -------->
 <ons-modal var="modal">
+    
   <ons-icon icon="ion-load-c" spin="true"></ons-icon>
 
 </ons-modal>
@@ -340,10 +373,17 @@
  <ons-template id="alert-dialog.html">
      
   <ons-alert-dialog var="alertDialog" style="width: 130%; height: 100%; z-index: 20001; border-radius: 0px; display: block;background-color: #242424; background-size: 17%;">
+      
+      
+      
       <!--<ons-toolbar >
-       
+      
+
         <div class="center">Sign in</div>
       </ons-toolbar>-->
+      
+      <!---
+
     <div align="right"><img src="img/programoslogook.png" width="24%" /></div>
       
      
@@ -375,7 +415,7 @@
          
         <ons-icon class="pg_social_IN" icon="linkedin-square" fixed-width="true"></ons-icon>
       </div>
-
+        ----->
     <!--<div class="alert-dialog-title"><strong style="color: #ff3333">Critical Alert!</strong></div>
     <div class="alert-dialog-content">
       An error has occurred!
@@ -387,6 +427,7 @@
 </ons-template>
       
 <ons-template id="login.html">
+    
     <ons-dialog var="dialog" cancelable >
 
       <ons-toolbar inline>
