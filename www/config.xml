@@ -9,6 +9,9 @@
     </author>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
+    <plugin name="cordova-plugin-network-information" spec="1" />
+    <plugin name="cordova-cordova-plugin-dialogs" spec="1" />
+    <plugin name="cordova-cordova-plugin-splashscreen" spec="1" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -23,15 +26,12 @@
     <preference name="SplashScreenDelay" value="1000" />
     <platform name="android">
     <!-- you can use any density that exists in the Android project -->
-    <splash src="res/screen/android/splash-land-hdpi" density="land-hdpi"/><!--land-hdpi  -->
-    <splash src="res/screen/android/splash-land-ldpi" density="land-ldpi"/><!--land-ldpi  -->
-    <splash src="res/screen/android/splash-land-mdpi" density="land-mdpi "/><!--land-mdpi  -->
-    <splash src="res/screen/android/splash-land-xhdpi" density="land-xhdpi"/><!--land-xhdpi  -->
+    <splash src="res/screen/android/hdpi.png" density="hdpi"/><!--land-hdpi  -->
+    <splash src="res/screen/android/ldpi.png" density="ldpi"/><!--land-ldpi  -->
+    <splash src="res/screen/android/mdpi.png" density="mdpi "/><!--land-mdpi  -->
+    <splash src="res/screen/android/xhdpi.png" density="xhdpi"/><!--land-xhdpi  -->
 
-    <splash src="res/screen/android/splash-port-hdpi" density="port-hdpi"/><!--port-hdpi  -->
-    <splash src="res/screen/android/splash-port-ldpi" density="port-ldpi"/><!--port-ldpi  -->
-    <splash src="res/screen/android/splash-port-mdpi" density="port-mdpi"/><!--port-mdpi  -->
-    <splash src="res/screen/android/splash-port-xhdpi" density="port-xhdpi"/><!--port-xhdpi  -->
+    
 </platform>
     <platform name="android">
         <allow-intent href="market:*" />
