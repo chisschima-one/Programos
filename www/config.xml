@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="progromoslimited.cpmobileapp.myapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>CPMobileApp</name>
+<widget id="progromoslimited.cpmobileapp.myapp" version="1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>TopGains Mobile</name>
     <description>
-        Programos software Limmited Mobile App 
+        Programos software Limmited TopGains Mobile App 
     </description>
-    <author email="infodev@programoslimited.com" href="http://cordova.io">
+    <author email="infodev@programoslimited.com" href="http://www.programoslimited.com">
         Programos Software Limited
     </author>
     <content src="index.html" />

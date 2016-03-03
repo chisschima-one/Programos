@@ -243,17 +243,115 @@
           </ons-page>
 </ons-template>--->
     
+      <!--------- Select Broker stuffs --------->
+    <ons-template id="brokerList.html">
+        
+        <ons-toolbar>
+            <div class="left" style="line-height:30px;">
+                <ons-toolbar-button onclick="menu.setMainPage('Markets.html', {closeMenu: true})">
+                                        <ons-icon icon="
+         chevron-left" style="font-size: 30px; width: 1em;border-right-color: #424242;border-right-width: thin;border-right-style: solid;"></ons-icon>
+
+                                    </ons-toolbar-button>
+            </div>
+            <div class="center">
+                Choose Your Broker
+            </div>
+        </ons-toolbar>
+      
+     <ons-list>
+
+        <ons-list-item modifier="chevron" class="list-item-container" onclick="menu.setMainPage('brokerSignIn.html', {closeMenu: true})">
+          <div class="list-item-left">
+            <img src="img/GTB.png" class="avator">
+          </div>
+            
+          <div class="list-item-right">
+            <div class="list-item-content">
+              <!--<div class="name">Daniel
+                <span class="lucent">@Danny</span>
+              </div>-->
+
+              <span class="desc">WOODLAND LIMMITED</span>
+            </div>
+          </div>
+        </ons-list-item>
+      
+      </ons-list>
+    
+    
+    </ons-template>
+      <!--------- Select Broker stuffs ENDS --------->
+    
+    <ons-template id="brokerSignIn.html">
+    
+        <ons-page>
+            <ons-toolbar>
+                              <div class="left" style="line-height: 44px; width: 13%;">
+                                  <ons-toolbar-button onclick="menu.setMainPage('brokerList.html', {closeMenu: true})">
+                                        <ons-icon icon="
+         chevron-left" style="font-size: 43px; width: 1em;border-right-color: #424242;border-right-width: thin;border-right-style: solid;"></ons-icon>
+
+                                    </ons-toolbar-button>
+                              </div>
+                              <div class="right" >
+                                  
+                                       
+                                    
+
+                             
+                                </div>
+
+                               
+
+                    
+                      </ons-toolbar>
+
+
+                       <div style="background-color: rgba(66, 66, 66, 0);background-image: url(img/bg2.png);background-size: 24%;width:100%;height: 154px;padding-top: 11px;" align="center">
+                            <img src="img/download.png" width="100px" style="margin-top:1%;"/>
+                           <h6 style="margin-top: -1%;font-size: 12px;"> WOODLAND LIMMITED</h6>
+                      </div>
+                     <div style="width:100%;height: 2%;background-color: #D87800;box-shadow: 0px -3px 8px 1px rgba(0, 0, 0, 0.71);"></div>
+                     <div style="width: 100%;height: 52%;box-shadow: 0px -7px 16px -4px rgba(0, 0, 0, 0.43);border-top-style: double;border-top-color: rgba(250, 250, 250, 0.6);">
+                         
+                         
+                         <input id="un"  type="text" class="text-input width-full" placeholder="Username" value="">
+          
+                            <p></p>
+
+       
+                            <input id="pw" type="password" class="text-input width-full" placeholder="Password" value="" style="border-width-left: 1px">
+    
+
+                            <div class="lucent" align="center">
+                              <p class="note">Password - 6 characters or more</p>
+                            </div>
+
+        
+                         <ons-button modifier="large--cta" onclick="loading()" >Sign In</ons-button>
+                         
+                          
+                      </div>
+
+    </ons-page>
+    
+    </ons-template>
+    
     
     <!--------- side menu stuffs --------->
     
     <ons-template id="menu.html">
+        
+        
+        
         
         <div class="center" style="">
             
             <div class="center" style="background-color: #FFF;border-radius: 34px;width: 60px;height: 60px;margin: 7px;">
                 <img src="img/logo.png" width="40px" style="margin-left: 9px;margin-top: 11px;">
                 <div id="pg_customerNotIN" style="position: relative;top: -60px;left: 74px;width: 160px;">
-                <ons-button modifier="large--cta" onclick="showSigIn()" >Sign In</ons-button>
+                <ons-button modifier="large--cta" onclick="menu.setMainPage('brokerList.html', {closeMenu: true})" >Sign In</ons-button>
                     
                 
                 </div>
@@ -332,14 +430,17 @@
 
         </ons-page>        --->
 
+    
+    
 
     <!---- Choose Stock Exchange  stuff  ------->
     <ons-template id="alert-dialogSE.html">
+
      
   <ons-alert-dialog var="alertDialogSE" style="width: 130%; height: 50%; z-index: 20001; border-radius: 0px; display: block;background-color: #242424; background-size: 17%;">
      <ons-toolbar >
        
-        <div class="center">Choose Your Exchange</div>
+        <div class="center">Choose Exchange</div>
       </ons-toolbar>
     
       
@@ -363,6 +464,10 @@
     
     
     
+    
+    
+    
+    
  <!------    Sign in page  -------->
 <ons-modal var="modal">
     
@@ -375,12 +480,22 @@
   <ons-alert-dialog var="alertDialog" style="width: 130%; height: 100%; z-index: 20001; border-radius: 0px; display: block;background-color: #242424; background-size: 17%;">
       
       
+
+      
+
+    
+      
+      
+      
       
       <!--<ons-toolbar >
       
 
+
         <div class="center">Sign in</div>
       </ons-toolbar>-->
+      
+      
       
       <!---
 
@@ -426,10 +541,10 @@
   </ons-alert-dialog>
 </ons-template>
       
-<ons-template id="login.html">
-    
+<ons-template id="login.html">    
     <ons-dialog var="dialog" cancelable >
 
+        
       <ons-toolbar inline>
        
         <div class="center">Sign in</div>

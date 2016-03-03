@@ -46,6 +46,43 @@ ons-dialog:not([modifier='material']) p {
 input {
   width: 100%;
 }
+
+
+.list-item-container {
+  line-height: 1;
+  font-size: 14px;
+  padding: 15px 0px 15px 15px;
+}
+
+.list-item-left {
+  width: 60px;
+  margin-right: -60px;
+  float: left;
+}
+
+.list-item-right {
+  width: 100%;
+  float: right;
+}
+
+.list-item-content {
+  margin-left: 50px;
+  margin-right: 30px;
+  /* text-align: center; */
+  margin-top: 4%;
+}
+
+.avator {
+  width: 60px;
+  height: 40px;
+  margin-left: -19%;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+
+
+
 .item {
   padding: 10px;
   line-height: 1;
@@ -111,7 +148,8 @@ ons-list-item {
 
 .desc {
   line-height: 1.2;
-  font-size: 13px;
+  font-size: smaller;
+  font-weight: 800;
 }
 
 .pg_social{
@@ -121,7 +159,7 @@ ons-list-item {
 }
 .pg_loginarea{
     margin-top: 63%;width:100%;background-image: url(img/bg.png);background-size: 17%;height:23px;box-shadow: 0px 1px 10px 1px #000;
-}
+}   
 
 
 
@@ -143,9 +181,7 @@ ons-list-item {
     }
     
      .pg_loginarea{
-            margin-top: 43%;
-         
-         
+            margin-top: 41%;
     }
 }
 
