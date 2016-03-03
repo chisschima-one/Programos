@@ -19,17 +19,19 @@
     <preference name="Fullscreen" value="true" />
     <preference name="Orientation" value="portrait" />
     <preference name="phonegap-version" value="3.7.0" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="1000" />
     <platform name="android">
     <!-- you can use any density that exists in the Android project -->
-    <splash src="res/screen/android/splash-land-hdpi.png" density="land-hdpi"/>
-    <splash src="res/screen/android/splash-land-ldpi.png" density="land-ldpi"/>
-    <splash src="res/screen/android/splash-land-mdpi.png" density="land-mdpi"/>
-    <splash src="res/screen/android/splash-land-xhdpi.png" density="land-xhdpi"/>
+    <splash src="res/screen/android/splash-land-hdpi" density="land-hdpi"/><!--land-hdpi  -->
+    <splash src="res/screen/android/splash-land-ldpi" density="land-ldpi"/><!--land-ldpi  -->
+    <splash src="res/screen/android/splash-land-mdpi" density="land-mdpi "/><!--land-mdpi  -->
+    <splash src="res/screen/android/splash-land-xhdpi" density="land-xhdpi"/><!--land-xhdpi  -->
 
-    <splash src="res/screen/android/splash-port-hdpi.png" density="port-hdpi"/>
-    <splash src="res/screen/android/splash-port-ldpi.png" density="port-ldpi"/>
-    <splash src="res/screen/android/splash-port-mdpi.png" density="port-mdpi"/>
-    <splash src="res/screen/android/splash-port-xhdpi.png" density="port-xhdpi"/>
+    <splash src="res/screen/android/splash-port-hdpi" density="port-hdpi"/><!--port-hdpi  -->
+    <splash src="res/screen/android/splash-port-ldpi" density="port-ldpi"/><!--port-ldpi  -->
+    <splash src="res/screen/android/splash-port-mdpi" density="port-mdpi"/><!--port-mdpi  -->
+    <splash src="res/screen/android/splash-port-xhdpi" density="port-xhdpi"/><!--port-xhdpi  -->
 </platform>
     <platform name="android">
         <allow-intent href="market:*" />

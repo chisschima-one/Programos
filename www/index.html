@@ -8,13 +8,16 @@
         <link rel="stylesheet" href="css/onsen-css-components.css">
          <link rel="stylesheet" href="css/list_avatars.css">
          <link rel="stylesheet" href="css/signup.css">
+        
+        
          <!----- Script reference ------->        
-     <!-- <script type="text/javascript" src="cordova.js"></script>---->
+     <!-- ----> <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
     <script src="js/angular/angular.js"></script>
     <script src="js/onsenui.js"></script>
     <script src="js/index.js"></script> 
     <script src="js/main.js"></script>
+        
     <script>
     ons.bootstrap();
 
@@ -40,8 +43,6 @@
     
     
 <!----- MKT stuffs ------>
-    
-    
     <ons-template id="Markets.html">
         
             <ons-navigator title="Navigator" var="myNavigator">
@@ -243,9 +244,10 @@
           </ons-page>
 </ons-template>--->
     
-      <!--------- Select Broker stuffs --------->
-    <ons-template id="brokerList.html">
-        
+<!--------- Select Broker stuffs --------->
+<ons-template id="brokerList.html">
+     
+    
         <ons-toolbar>
             <div class="left" style="line-height:30px;">
                 <ons-toolbar-button onclick="menu.setMainPage('Markets.html', {closeMenu: true})">
@@ -281,16 +283,17 @@
     
     
     </ons-template>
-      <!--------- Select Broker stuffs ENDS --------->
-    
-    <ons-template id="brokerSignIn.html">
-    
+<!--------- Select Broker stuffs ENDS --------->
+
+ <!--------- brokerSignIn stuffs --------->
+<ons-template id="brokerSignIn.html">
+        
         <ons-page>
             <ons-toolbar>
                               <div class="left" style="line-height: 44px; width: 13%;">
                                   <ons-toolbar-button onclick="menu.setMainPage('brokerList.html', {closeMenu: true})">
                                         <ons-icon icon="
-         chevron-left" style="font-size: 43px; width: 1em;border-right-color: #424242;border-right-width: thin;border-right-style: solid;"></ons-icon>
+         chevron-left" style="font-size: 30px; width: 1em;border-right-color: #424242;border-right-width: thin;border-right-style: solid;"></ons-icon>
 
                                     </ons-toolbar-button>
                               </div>
@@ -337,11 +340,11 @@
     </ons-page>
     
     </ons-template>
+<!--------- brokerSignIn stuffs  ENDS --------->
     
     
-    <!--------- side menu stuffs --------->
-    
-    <ons-template id="menu.html">
+ <!--------- side menu stuffs --------->  
+<ons-template id="menu.html">
         
         
         
@@ -392,9 +395,8 @@
         </ons-list-item>
           
       </ons-list>
-    </ons-template>  
-    
-    <!--------- side menu stuffs END --------->
+    </ons-template>    
+ <!--------- side menu stuffs END --------->
     
     
      <!---
@@ -429,12 +431,9 @@
           </div>
 
         </ons-page>        --->
-
-    
-    
-
-    <!---- Choose Stock Exchange  stuff  ------->
-    <ons-template id="alert-dialogSE.html">
+   
+<!---- Choose Stock Exchange  stuff  ------->
+<ons-template id="alert-dialogSE.html">
 
      
   <ons-alert-dialog var="alertDialogSE" style="width: 130%; height: 50%; z-index: 20001; border-radius: 0px; display: block;background-color: #242424; background-size: 17%;">
@@ -457,16 +456,10 @@
       <button class="alert-dialog-button" ng-click="alertDialog.hide(); alertDialog.show()">OK</button>
     </div>-->
   </ons-alert-dialog>
-</ons-template>
+</ons-template>   
+<!---- Choose Stock Exchange  stuff  ------->
     
-    <!---- Choose Stock Exchange  stuff  ------->
-    
-    
-    
-    
-    
-    
-    
+        
     
  <!------    Sign in page  -------->
 <ons-modal var="modal">
