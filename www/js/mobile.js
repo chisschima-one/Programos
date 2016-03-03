@@ -1,6 +1,6 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
-document.addEventListener("online", onOnnline, false);
+document.addEventListener("online", onOnline, false);
 
 document.addEventListener("offline", onOffline, false);
 
