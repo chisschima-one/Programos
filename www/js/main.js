@@ -1,5 +1,3 @@
-
- 
  ons.ready(function() {
            ons.createAlertDialog('alert-dialog.html').then(function(alertDialog) {
             
@@ -19,7 +17,7 @@
         });
 
 
-         $(document.body).on("pageinit", '#my-page', function() {
+ $(document.body).on("pageinit", '#my-page', function() {
 
              
             
@@ -42,12 +40,16 @@
      
         });
 
+
+
+
 function showSE(){
     
     
 }
 function  showSigIn(){
     alertDialog.show();
+    //navigatorSI.pushPage(,{animation:'lift'});
 }
 
 function displayNSE(){
@@ -78,6 +80,7 @@ function showSigIn(){
 function loading(){
     
     
+    
        var un = $("#un").val();
        var pw = $("#pw").val();
       modal.show();
@@ -98,14 +101,24 @@ function loading(){
      
  }
 function login(){
-    alertDialog.destroy();
+    
+    alertDialog.hide();
+    navigatorSI.popPage()
   var options = 
            {animation:'lift',
             onTransitionEnd: function() {
                 alert("Execute Refesh list");
             }
            };
-    myNavigator.pushPage("Markets.html",options)
+   $("#pg_customerImg").attr('src','img/Oyelowo-David 129X128.jpg');
+   
+    $("#pg_customerLoggedin").css('opacity','1');
+    $("#pg_customerLoggedin").css('display','block');
+     
+     $("#pg_customerNotIN").css('opacity','0');
+   $("#pg_customerNotIN").css('display','none');
+   
+     myNavigator.pushPage("Markets.html",options)
          //show('#login.html');
         /**/ 
             
@@ -114,6 +127,7 @@ function login(){
 
 }
 function error(){
+    
     
 
     setTimeout('modal.hide()',2000);

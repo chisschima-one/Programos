@@ -1226,7 +1226,7 @@ h6 {
   background-color: #3d74ff;
   border: 0px solid currentColor;
   -webkit-border-radius: 3px;
-  border-radius: 3px;
+  border-radius: 0px;
   -webkit-transition: none;
   -moz-transition: none;
   -o-transition: none;
@@ -3416,10 +3416,10 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   width: 270px;
   margin: auto auto;
   background-color: rgba(255,255,255,0.92);
-  -webkit-box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
+  -webkit-box-shadow: 0 2px 17px rgba(0,0,0,0.61);
+  box-shadow: 0 2px 17px rgba(0, 0, 0, 0.61);
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
   overflow: hidden;
   padding: 16px 0 0 0;
   max-width: 95%;

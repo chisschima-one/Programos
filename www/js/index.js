@@ -59,6 +59,7 @@ var app = {
          */
 
         /*
+        
         function DoIt()
         {
             var surl = "http://localhost:65458/Default.aspx";
@@ -79,11 +80,7 @@ var app = {
         }
         */
     
-
-       
-        
-        
-        
+  
         app.receivedEvent('deviceready');
         
            
