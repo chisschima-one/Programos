@@ -160,10 +160,58 @@ ons-list-item {
 .pg_loginarea{
     margin-top: 63%;width:100%;background-image: url(img/bg.png);background-size: 17%;height:23px;box-shadow: 0px 1px 10px 1px #000;
 }   
+.pg_brokerLogoIN{
+    
+    display: -webkit-inline-box;
+   /* position: relative;*/
+   /* left: -84px;*/
+   /* top: -9px;*/
+    margin-top: 2px;
+    margin-left: -29px;
+    list-style: none;
+}
+.pg_brokerLogoINtxt{
+        font-size: 11px;
+    text-align:right;
+    margin-top: -9px;
+    text-transform: capitalize;
+        
+    }
+#pg_SignInToBrokerTitle{
+    width: 75%
+}
+.pg_SignInToBrokerTex{
+    background-color: rgba(66, 66, 66, 0);
+    background-image: url(img/bg3.png);
+    background-size: cover;
+    background-position: center;
+    width:100%;
+    height: 154px;
+    padding-top: 11px;
+    
+}
+#pg_SignInToBrokerlogodiv{
+    
+    
+    margin-bottom: 5%;
+    padding: 9%;
+    background-color: #fff;
+    border-radius: 64%;
+    width: 22%;
+    height: 105%;
+    box-shadow: 0px 0px 19px 1px #000;
+    -webkit-box-shadow:0px 0px 19px 1px #000;
+}
+.pg_SignInToBrokerNm{
+    
+    margin-top: -1%;
+    font-size: 12px;
+    text-shadow: 0px 2px 1px #000;
+}
 
 
+/*=====-----------  Media Screen Stuffs   --------====*/
 
-/*----------------  media Screeen --------------*/
 @media (min-width:320px) { /* smartphones, iPhone, portrait 480x320 phones */
     
     .pg_social{
@@ -183,13 +231,116 @@ ons-list-item {
      .pg_loginarea{
             margin-top: 41%;
     }
+    
+    
+    
+    
+    .pg_brokerLogoIN{
+        display: -webkit-inline-box;
+         margin-left: -60px;
+/*        left: -154px;*/
+    }
+    .pg_brokerLogoINtxt{
+/*        font-size: 9px;*/
+        
+    }
+    #pg_navbar{
+    
+    width: 0%;
+    }
 }
 
-@media (min-width:641px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
+@media (min-width:360px) {
     
+    .pg_brokerLogoIN{
+        
+            /*left: -142px;*/
+    }
+    .pg_brokerLogoINtxt{
+        /*font-size: 9px;*/
+        
+    }
+#pg_navbar{
+    
+    width: 7%;
+ }
+}
+
+@media (min-width:480px){
+     /* portrait 480 X 800 */
+.pg_brokerLogoIN{
+        display: -webkit-inline-box;
+    margin-left: -28px;
+       /* left:  -162px;*/
+    }
+.pg_brokerLogoINtxt{
+        /*font-size: 9px;*/
+        
+    }
+ #pg_navbar{
+    
+    width: 23%;
+ }
+    
+    
+ #pg_SignInToBrokerTitle{
+    width: 78%;
+}
+.pg_SignInToBrokerTex{
+       
+     height: 184px;
+    }
+ #pg_SignInToBrokerlogodiv{
+      margin-bottom: 5%;
+      width:15%;
+     
+    } 
+.pg_SignInToBrokerNm{
+    
+      font-size: 15px;  
+    }
     
 }
-@media (min-width:768px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
+#pg_ChooseBroker{
+    
+    width: 130%; 
+    height: 500px;
+    z-index: 20001;
+    border-radius: 0px;
+    display: block;
+    background-color: #242424;
+    background-size: 17%;
+    
+}
+@media (min-width:600px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
+    
+    .pg_brokerLogoIN{
+        
+/*        left: -142px;*/
+    }
+    .pg_brokerLogoINtxt{
+/*        font-size: 12px;*/
+        
+    }
+    #pg_navbar{
+    
+    width: 23%;
+ }
+    #pg_SignInToBrokerlogodiv{
+       margin-bottom: 4%;
+    width: 13%;
+       
+           padding: 7%;
+    }
+    .pg_SignInToBrokerNm{
+         font-size: 17px; 
+    }
+    #pg_ChooseBroker{
+        height: 650px;
+    }
+}
+@media (min-width:700px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
+    
     .pg_social{
         
         margin-top: -40%;
@@ -210,10 +361,65 @@ ons-list-item {
     .pg_loginarea{
             margin-top: 57%;
     }
+    
+    .pg_brokerLogoIN{
+        
+/*        left: -147px;*/
+    }
+    .pg_brokerLogoINtxt{
+/*        font-size: 16px;*/
+        
+    }
+       #pg_navbar{
+    
+    width: 40%;
+ }
+    
+    #pg_SignInToBrokerlogodiv{
+        margin-bottom: 3%;
+      width:10%;
+       
+           padding: 6%;
+    }
+    .pg_SignInToBrokerNm{
+         font-size: 19px; 
+    }
+    #pg_ChooseBroker{
+        height: 650px;
+    }
+    
 }
-
-
+@media (min-width:800px) { /* tablet, landscape iPad, lo-res laptops ands desktops
+      */
+    .pg_brokerLogoIN{
+        
+/*        left: -134px;*/
+    }
+      #pg_navbar{
+    
+    width: 43%;
+ }
+}
+@media (min-width:760px) {
+    #pg_navbar{
+    
+    width: 42%;
+ }
+}
 @media (min-width:961px) { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
-
-@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1024px) { /* big landscape tablets, laptops, and desktops */ 
+    
+.pg_brokerLogoIN{
+    
+        
+/*        left: -77px;*/
+    }
+    .pg_brokerLogoINtxt{
+        
+/*        font-size: 15px;*/
+        
+    }
+    
+    
+}
 @media (min-width:1281px) { /* hi-res laptops and desktops */ }

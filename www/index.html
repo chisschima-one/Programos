@@ -120,9 +120,22 @@
                          </ons-toolbar-button>
                                                               
                       </div>
+<div id="pg_navbar" style="" class="center"></div>
                         <div class="right">
-                            <ons-toolbar-button onclick="menu.setMainPage('search.html', {closeMenu: true})">
-                                <ons-icon icon="ion-search" style="font-size: 43px; width: 1em;border-left-color: #424242;border-left-width: thin;border-left-style: solid;"></ons-icon>
+                            
+                            
+                            <ons-toolbar-button onclick="menu.setMainPage('search.html', {closeMenu: true})" ng-disabled="true">
+                                <ul class="pg_brokerLogoIN" style="" >
+                                    <li style="width:173px;"> <p class="pg_brokerLogoINtxt" style="">WOODLAND LIMITED</p></li>
+                                    <li> <img src="img/GTB.png" style="width: 42px;/* float:left */margin-top: -24px;"></li>
+                                
+                                
+                                </ul>
+                              
+                               
+                                
+                               <!-- <ons-icon icon="ion-search" style="font-size: 43px; width: 1em;border-left-color: #424242;border-left-width: thin;border-left-style: solid;"></ons-icon> -->
+                                
                             </ons-toolbar-button>
                         </div>
                         
@@ -488,43 +501,38 @@
 
                                     </ons-toolbar-button>
                               </div>
-                              <div class="center" >
+                        <div id="pg_SignInToBrokerTitle" class="center" >
                                   
-                                       
+                                
                                     Sign In to Broker
-
-                             
+                                           
                                 </div>
 
-                               
+                               <div class="right">
+                                   <ons-toolbar-button>
+                                   </ons-toolbar-button>
+                </div>
 
                     
                       </ons-toolbar>
 
 
-                       <div style="background-color: rgba(66, 66, 66, 0);background-image: url(img/bg3.png);background-size: cover;background-position: center;width:100%;height: 154px;padding-top: 11px;" align="center">
+                 <div class="pg_SignInToBrokerTex" style=" background-image: url(img/bg3.png);" align="center">
                            
                           <div class="formarea" style="
     margin-top: 1%;
 ">
-                        <div class="form-row" style="
-    margin-bottom: 7%;
-    padding: 9%;
-    background-color: #fff;
-    border-radius: 64%;
-    width: 24%;
-    height: 105%;
-" align="center">
+                        <div id="pg_SignInToBrokerlogodiv" class="form-row" style="" align="center">
                             <img src="img/GTB.png" width="100px" style="margin-top: -5%;margin-left: -26%;margin-bottom: -14%;/* box-shadow: 0px 0px 16px 2px #000; */">
                                </div>
-                             <div class="form-row">   
-                           <h6 style="margin-top: -1%;font-size: 12px;text-shadow: 0px 2px 1px #000;"> WOODLAND LIMMITED</h6>
+                             <div class="form-row">  
+                           <h6 class="pg_SignInToBrokerNm" style=""> WOODLAND LIMITED</h6>
                                </div>
                            </div>
                            
                            
                       </div>
-                     <div style="width:100%;height: 2%;background-color: #D87800;box-shadow: 0px -3px 8px 1px rgba(0, 0, 0, 0.71);"></div>
+                     <div style="width:100%;height: 2%;background-color: #D87800;box-shadow: 0px -3px 8px 1px rgba(0, 0, 0, 0.71);-webkit-box-shadow:0px -3px 8px 1px rgba(0, 0, 0, 0.71);"></div>
                      <div style="width: 100%;height: 52%;box-shadow: 0px -7px 16px -4px rgba(0, 0, 0, 0.43);border-top-style: double;border-top-color: rgba(250, 250, 250, 0.6);">
                          
                     <div class="formarea" style="margin-top:7%;" >
@@ -592,6 +600,7 @@
    
 <!---- Choose Stock Exchange  stuff  ------->
 <ons-template id="alert-dialogSE.html">
+    
 
      
   <ons-alert-dialog var="alertDialogSE" style="width: 130%; height: 200px; z-index: 20001; border-radius: 0px; display: block;background-color: #242424; background-size: 17%;">
@@ -631,7 +640,8 @@
   
  <ons-template id="alert-dialog.html">
      
-  <ons-alert-dialog var="alertDialog" style="width: 130%; height: 500px; z-index: 20001; border-radius: 0px; display: block;background-color: #242424; background-size: 17%;">
+  <ons-alert-dialog var="alertDialog" id="pg_ChooseBroker" style="">
+      
       
       
       
@@ -683,7 +693,7 @@
                 <span class="lucent">@Danny</span>
               </div>-->
 
-              <span class="desc">WOODLAND LIMMITED</span>
+              <span class="desc">WOODLAND LIMITED</span>
             </div>
           </div>
         </ons-list-item><ons-list-item modifier="chevron" class="list-item-container" onclick="navigatorSI.pushPage('brokerSignIn.html', { animation : 'slide' } )">
@@ -697,7 +707,7 @@
                 <span class="lucent">@Danny</span>
               </div>-->
 
-              <span class="desc">WOODLAND LIMMITED</span>
+              <span class="desc">WOODLAND LIMITED</span>
             </div>
           </div>
         </ons-list-item><ons-list-item modifier="chevron" class="list-item-container" onclick="navigatorSI.pushPage('brokerSignIn.html', { animation : 'slide' } )">
@@ -711,7 +721,7 @@
                 <span class="lucent">@Danny</span>
               </div>-->
 
-              <span class="desc">WOODLAND LIMMITED</span>
+              <span class="desc">WOODLAND LIMITED</span>
             </div>
           </div>
         </ons-list-item>
@@ -726,7 +736,7 @@
                 <span class="lucent">@Danny</span>
               </div>-->
 
-              <span class="desc">WOODLAND LIMMITED</span>
+              <span class="desc">WOODLAND LIMITED</span>
             </div>
           </div>
         </ons-list-item>
@@ -741,7 +751,7 @@
                 <span class="lucent">@Danny</span>
               </div>-->
 
-              <span class="desc">WOODLAND LIMMITED</span>
+              <span class="desc">WOODLAND LIMITED</span>
             </div>
           </div>
         </ons-list-item>
@@ -772,7 +782,7 @@
                 <span class="lucent">@Danny</span>
               </div>-->
 
-              <span class="desc">WOODLAND LIMMITED</span>
+              <span class="desc">WOODLAND LIMITED</span>
             </div>
           </div>
         </ons-list-item>
@@ -787,7 +797,7 @@
                 <span class="lucent">@Danny</span>
               </div>-->
 
-              <span class="desc">WOODLAND LIMMITED</span>
+              <span class="desc">WOODLAND LIMITED</span>
             </div>
           </div>
         </ons-list-item>
