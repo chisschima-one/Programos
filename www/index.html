@@ -11,7 +11,7 @@
         
         
          <!----- Script reference ------->        
-     <!--  ----><script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+     <!-- ----><script type="text/javascript" charset="utf-8" src="cordova.js"></script> ---->
     <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
     <script src="js/angular/angular.js"></script>
     <script src="js/onsenui.js"></script>
@@ -33,7 +33,7 @@
  
     
 
-    <ons-sliding-menu main-page="Markets.html" menu-page="menu.html" side="left" max-slide-distance="250px" var="menu">
+    <ons-sliding-menu main-page="Markets.html" menu-page="menu.html" side="left" max-slide-distance="400px" var="menu">
     </ons-sliding-menu>
      <ons-template id="empty.html">
           <ons-toolbar>
@@ -61,6 +61,9 @@
                     <div style="font-size: 20px;margin:0px;">Company</div>
                     <div style="font-size: 14px;font-weight: 100;margin: 2px 0px;width: 169px;height: 67px;color: #B7B6B6;">Programmos Limited Nigeria</div>
                     
+                </div>
+                <div class="right" id="pg_customerSignOut" style="display:none;position: relative;top: -142px;left: 227px;width: 144px;">
+                        <ons-button modifier="large--cta" onclick="showSignOut()" >Sign Out</ons-button>
                 </div>
             </div>
         </div>
@@ -124,19 +127,22 @@
                         <div class="right">
                             
                             
-                            <ons-toolbar-button onclick="menu.setMainPage('search.html', {closeMenu: true})" ng-disabled="true">
-                                <ul class="pg_brokerLogoIN" style="" >
-                                    <li style="width:173px;"> <p class="pg_brokerLogoINtxt" style="">WOODLAND LIMITED</p></li>
-                                    <li> <img src="img/GTB.png" style="width: 42px;/* float:left */margin-top: -24px;"></li>
+                           <!--
+                             <p class="pg_brokerLogoINtxt" style="">WOODLAND LIMITED</p>
+                                     <img src="img/GTB.png" style="width: 42px;/* float:left */margin-top: -24px;">
                                 
-                                
-                                </ul>
+                                -->
+                             
                               
-                               
-                                
-                               <!-- <ons-icon icon="ion-search" style="font-size: 43px; width: 1em;border-left-color: #424242;border-left-width: thin;border-left-style: solid;"></ons-icon> -->
-                                
-                            </ons-toolbar-button>
+                            <ons-toolbar-button>  
+                             <!-- <ons-icon icon="ion-search" style="font-size: 43px; width: 1em;border-left-color: #424242;border-left-width: thin;border-left-style: solid;"></ons-icon>--> 
+                             
+                         <div class="pg_brokerLogoIN"  style="">
+                                    WOODLAND LIMITED
+                                </div>
+                                 <img id="pg_brokerIMGS" src="img/GTB.png" style="">  
+                              </ons-toolbar-button>   
+                          
                         </div>
                         
                     </ons-toolbar>

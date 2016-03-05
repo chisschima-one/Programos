@@ -74,10 +74,36 @@ function loadingGSE(){
     setTimeout('alertDialogSE.destroy()',2000);
 }
 
+
+function showSignOut(){
+   
+    navigator.notification.confirm(
+    'Sure to SignOut', // message
+     onSignOut,            // callback to invoke with index of button pressed
+    'Sign Out',           // title
+    ['Yes','No']     // buttonLabels
+);
+     menu.setMainPage('Markets.html', {closeMenu: true});
+}
+function onSignOut(buttonIndex){
+    if(buttonIndex == 1)
+        {
+           setTimeout('modal.show();', 2000); 
+            
+            $("#pg_customerSignOut").hide('slow');
+            $("#pg_customerLoggedin").hide('slow');
+            $("#pg_customerNotIN").show('slow');
+             $("#pg_brokerIMGS").hide('slow');      
+        $(".pg_brokerLogoIN").hide('slow');  
+            
+        }else{}
+}
 function showSigIn(){
     alertDialog.show();
+    menu.setMainPage('Markets.html', {closeMenu: true});
 }
 function loading(){
+    
     
     
     
@@ -101,6 +127,8 @@ function loading(){
      
  }
 function login(){
+
+    
     
     alertDialog.hide();
     navigatorSI.popPage()
@@ -117,12 +145,15 @@ function login(){
      
      $("#pg_customerNotIN").css('opacity','0');
    $("#pg_customerNotIN").css('display','none');
+    
+    
    
-     myNavigator.pushPage("Markets.html",options)
+     myNavigator.pushPage("Markets.html",options);
          //show('#login.html');
         /**/ 
-            
-                                                      
+      $("#pg_brokerIMGS").show('slow');      
+        $(".pg_brokerLogoIN").show('slow');
+    $("#pg_customerSignOut").show('slow');
       
 
 }
