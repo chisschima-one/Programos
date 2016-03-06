@@ -11,7 +11,7 @@
         
         
          <!----- Script reference ------->        
-     <!-- ----><script type="text/javascript" charset="utf-8" src="cordova.js"></script> ---->
+     <!-- ----> <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
     <script src="js/angular/angular.js"></script>
     <script src="js/onsenui.js"></script>
@@ -33,7 +33,7 @@
  
     
 
-    <ons-sliding-menu main-page="Markets.html" menu-page="menu.html" side="left" max-slide-distance="400px" var="menu">
+    <ons-sliding-menu main-page="Markets.html" menu-page="menu.html" side="left" max-slide-distance="300px" var="menu">
     </ons-sliding-menu>
      <ons-template id="empty.html">
           <ons-toolbar>
@@ -56,14 +56,13 @@
                   <!--- navigatorSI.pushPage('brokerList.html', { animation : 'lift' } ) --->  
                 
                 </div>
-                <div id="pg_customerLoggedin" style="position: relative;top: -60px;left: 74px;width: 110px;opacity:0;display:none">
+                <div id="pg_customerLoggedin" style="position: relative;top: -47px;left: 74px;width: 110px;opacity:0;display:none">
 
                     <div style="font-size: 20px;margin:0px;">Company</div>
-                    <div style="font-size: 14px;font-weight: 100;margin: 2px 0px;width: 169px;height: 67px;color: #B7B6B6;">Programmos Limited Nigeria</div>
+                    <div style="font-size: 14px;font-weight: 100;margin: 2px 0px;width: 219px;height: 67px;color: #B7B6B6;">Programmos Limited Nigeria</div>
                     
                 </div>
                 <div class="right" id="pg_customerSignOut" style="display:none;position: relative;top: -142px;left: 227px;width: 144px;">
-                        <ons-button modifier="large--cta" onclick="showSignOut()" >Sign Out</ons-button>
                 </div>
             </div>
         </div>
@@ -98,7 +97,14 @@
         </ons-list-item>
           
       </ons-list>
-        
+        <ons-bottom-toolbar style="height: 57px;display:none;" id="pg_signOutBottombar">
+            <div class="formarea" style="margin: 6px 13px 11px;">
+                    <div class="form-row"></div>
+                                <ons-button modifier="large--cta" onclick="showSignOut()" >Sign Out</ons-button>
+                </div>
+                 </div>
+
+        </ons-bottom-toolbar>
         </ons-navigator>
     </ons-template>    
  <!--------- side menu stuffs END --------->
@@ -878,6 +884,7 @@
 </ons-template>
       
 <ons-template id="login.html"> 
+    
     
     
     <ons-dialog var="dialog" cancelable >

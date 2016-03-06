@@ -88,14 +88,17 @@ function showSignOut(){
 function onSignOut(buttonIndex){
     if(buttonIndex == 1)
         {
-           setTimeout('modal.show();', 2000); 
+            modal.show();
+           
             
             $("#pg_customerSignOut").hide('slow');
+            $("#pg_signOutBottombar").hide('slow');
             $("#pg_customerLoggedin").hide('slow');
             $("#pg_customerNotIN").show('slow');
              $("#pg_brokerIMGS").hide('slow');      
-        $(".pg_brokerLogoIN").hide('slow');  
+        $(".pg_brokerLogoIN").hide('slow'); 
             
+           setTimeout('modal.hide();', 2000);  
         }else{}
 }
 function showSigIn(){
@@ -153,11 +156,13 @@ function login(){
         /**/ 
       $("#pg_brokerIMGS").show('slow');      
         $(".pg_brokerLogoIN").show('slow');
+    $("#pg_signOutBottombar").show();
     $("#pg_customerSignOut").show('slow');
       
 
 }
 function error(){
+    
     
     
 
