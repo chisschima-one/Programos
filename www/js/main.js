@@ -94,7 +94,10 @@ function onSignOut(buttonIndex){
             $("#pg_customerSignOut").hide('slow');
             $("#pg_signOutBottombar").hide('slow');
             $("#pg_customerLoggedin").hide('slow');
-            $("#pg_customerNotIN").show('slow');
+            
+            $("#pg_customerNotIN").css('opacity','1');
+            $("#pg_customerNotIN").css('display','block');
+            
              $("#pg_brokerIMGS").hide('slow');      
         $(".pg_brokerLogoIN").hide('slow'); 
             
