@@ -173,17 +173,25 @@ ons-list-item {
     margin-left: -29px;
     list-style: none;
 */
-    display:none;
-    text-align:right;
-    font-size:10px;
-    float:left;
-    margin-right:-21px;
-    margin-left:-17px;
+              display: none;
+    text-align: right;
+    font-size: 10px;
+    font-family: sans-serif;
+    /* float: right; */
+    margin-right: -8px;
+    margin-top: -73px;
+    color: #9C9C9C;
+    margin-left: 0px;
+    position: relative;
+    top: 28px;
+    left: -56px;
 }
-#pg_brokerIMGS{
-    width: 65px;
-    margin-right:-21px;
+.pg_brokerIMGS{
+     width: 65px;
+    margin-right: -17px;
     display: none;
+    /* float: right; */
+    margin-top: -14px;
 }
 .pg_brokerLogoINtxt{
         font-size: 11px;
@@ -227,9 +235,60 @@ ons-list-item {
 #pg_navbar{
 /*      width: 0%;*/
 }
+
+
+.user_accdetails{
+    
+        text-align: center;
+    width: 100%;
+    height: 32px;
+    margin-left: 11px;
+    padding-left: 0px;
+}
+
+.user_accdetailscontainer{
+    
+        float: left;
+    width: 24%;
+    height: 233%;
+    border: thin solid #929292;
+    background: rgba(48,111,171,1);
+background: -moz-linear-gradient(top, rgba(48,111,171,1) 0%, rgba(14,56,99,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(48,111,171,1)), color-stop(100%, rgba(14,56,99,1)));
+background: -webkit-linear-gradient(top, rgba(48,111,171,1) 0%, rgba(14,56,99,1) 100%);
+background: -o-linear-gradient(top, rgba(48,111,171,1) 0%, rgba(14,56,99,1) 100%);
+background: -ms-linear-gradient(top, rgba(48,111,171,1) 0%, rgba(14,56,99,1) 100%);
+background: linear-gradient(to bottom, rgba(48,111,171,1) 0%, rgba(14,56,99,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#306fab', endColorstr='#0e3863', GradientType=0 );
+    
+}
+.user_accdetailscontainer2 {
+      float: left;
+    width: 24%;
+    height: 233%;
+    border: thin solid #929292;
+    
+    background: rgba(255,191,0,1);
+background: -moz-linear-gradient(top, rgba(255,191,0,1) 0%, rgba(224,164,0,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,191,0,1)), color-stop(100%, rgba(224,164,0,1)));
+background: -webkit-linear-gradient(top, rgba(255,191,0,1) 0%, rgba(224,164,0,1) 100%);
+background: -o-linear-gradient(top, rgba(255,191,0,1) 0%, rgba(224,164,0,1) 100%);
+background: -ms-linear-gradient(top, rgba(255,191,0,1) 0%, rgba(224,164,0,1) 100%);
+background: linear-gradient(to bottom, rgba(255,191,0,1) 0%, rgba(224,164,0,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbf00', endColorstr='#e0a400', GradientType=0 );
+	
+}
+
+
+
+
 /*=====-----------  Media Screen Stuffs   --------====*/
 
 @media (min-width:320px) { /* smartphones, iPhone, portrait 480x320 phones */
+    .user_accdetails{
+       margin-left: 5px; 
+        
+    }
     
     .pg_social{
         
@@ -254,7 +313,7 @@ ons-list-item {
     
     .pg_brokerLogoIN{
 /*        display: -webkit-inline-box;*/
-         margin-left: -60px;
+/*         margin-left: -60px;*/
 /*        left: -154px;*/
     }
     .pg_brokerLogoINtxt{
@@ -268,7 +327,10 @@ ons-list-item {
 }
 
 @media (min-width:360px) {
-    
+    .user_accdetails{
+       margin-left: 5px; 
+        
+    }
     .pg_brokerLogoIN{
         
             /*left: -142px;*/
@@ -284,6 +346,10 @@ ons-list-item {
 }
 
 @media (min-width:480px){
+    .user_accdetails{
+       margin-left: 5px; 
+        
+    }
      /* portrait 480 X 800 */
 .pg_brokerLogoIN{
 /*        display: -webkit-inline-box;
@@ -358,7 +424,10 @@ ons-list-item {
     }
 }
 @media (min-width:700px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
-    
+     .user_accdetails{
+       margin-left: 11px; 
+        
+    }
     .pg_social{
         
         margin-top: -40%;
@@ -381,7 +450,7 @@ ons-list-item {
     }
     
     .pg_brokerLogoIN{
-            margin-left: 60px;
+/*            margin-left: 60px;*/
 /*        left: -147px;*/
     }
     .pg_brokerLogoINtxt{
@@ -409,6 +478,11 @@ ons-list-item {
 }
 @media (min-width:800px) { /* tablet, landscape iPad, lo-res laptops ands desktops
       */
+    
+     .user_accdetails{
+       margin-left: 11px; 
+        
+    }
     .pg_brokerLogoIN{
         
 /*        left: -134px;*/
@@ -426,7 +500,10 @@ ons-list-item {
 }
 @media (min-width:961px) { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
 @media (min-width:1024px) { /* big landscape tablets, laptops, and desktops */ 
-    
+     .user_accdetails{
+       margin-left: 11px; 
+        
+    }
 .pg_brokerLogoIN{
     
         

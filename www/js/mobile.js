@@ -7,7 +7,7 @@ document.addEventListener("offline", onOffline, false);
 document.addEventListener("backbutton", backKeyDown, true);
 
 function onDeviceReady() {
-   
+ 
 }
 
 function onOnline() {
@@ -47,4 +47,7 @@ function onQuit(buttonIndex){
         
     }
 
+
+
+ 
 //navigator.app.exitApp();

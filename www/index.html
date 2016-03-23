@@ -5,8 +5,9 @@
        
         <meta charset="utf-8">
                    <link rel="stylesheet" href="css/onsenui.css">
-        <link rel="stylesheet" href="css/onsen-css-components.css">
-         <link rel="stylesheet" href="css/list_avatars.css">
+        <link rel="stylesheet" href="css/onsen-css-components.min2.css">
+       <!-----> <link rel="stylesheet" href="css/onsen-css-components2.css">
+        <!------> <link rel="stylesheet" href="css/list_avatars.css">
          <link rel="stylesheet" href="css/signup.css">
         
         
@@ -30,12 +31,15 @@
     </head>
 <body>
            
- 
+   <!--- <div style="z-index: 0;height:54px;background: black;position: relative;left: 57px;z-index:100000 ; height:54px; " >
+     
+    </div>--->
     
 
-    <ons-sliding-menu main-page="Markets.html" menu-page="menu.html" side="left" max-slide-distance="300px" var="menu">
+    <ons-sliding-menu main-page="Markets.html" menu-page="menu.html" side="left" max-slide-distance="300px" var="menu" type="overlay">
     </ons-sliding-menu>
      <ons-template id="empty.html">
+         
           <ons-toolbar>
             <div class="center">Page</div>
           </ons-toolbar>
@@ -58,8 +62,8 @@
                 </div>
                 <div id="pg_customerLoggedin" style="position: relative;top: -47px;left: 74px;width: 110px;opacity:0;display:none">
 
-                    <div style="font-size: 20px;margin:0px;">Company</div>
-                    <div style="font-size: 14px;font-weight: 100;margin: 2px 0px;width: 219px;height: 67px;color: #B7B6B6;">Programmos Limited Nigeria</div>
+                    <div id="type" style="font-size: 20px;margin:0px;"></div>
+                    <div id="name" style="font-size: 14px;font-weight: 100;margin: 2px 0px;width: 219px;height: 67px;color: #B7B6B6;"></div>
                     
                 </div>
                 <div class="right" id="pg_customerSignOut" style="display:none;position: relative;top: -142px;left: 227px;width: 144px;">
@@ -69,7 +73,7 @@
          <ons-list-header>Live Markets</ons-list-header>
       <ons-list>
           
-        <ons-list-item  onclick="menu.setMainPage('Markets.html', {closeMenu: true})">
+        <ons-list-item  onclick="menu.setMainPage('Markets.html', {closeMenu: true});showMktlist()">
             
            <ons-icon icon="bar-chart-o" size="22px" fixed-width="true" style="color:#87888f"></ons-icon><span style="font-size:20px;margin-left: 10px;">Markets </span>
         </ons-list-item>
@@ -89,13 +93,21 @@
         <ons-list-item  onclick="menu.setMainPage('MD_Sell.html', {closeMenu: true})">
             <ons-icon icon="angle-double-up" size="22px" fixed-width="true" style="color:#87888f"></ons-icon><span style="font-size:20px;margin-left: 10px;">Sell</span>
         </ons-list-item>
-          
+          <ons-list-item  onclick="menu.setMainPage('Pending.html', {closeMenu: true})">
+            <ons-icon icon="pause" size="22px" fixed-width="true" style="color:#87888f"></ons-icon><span style="font-size:20px;margin-left: 10px;">Pending</span>
+        </ons-list-item>
           <ons-list-header>Transactions</ons-list-header>
           
           <ons-list-item  onclick="menu.setMainPage('Transaction details.html', {closeMenu: true})">
             <ons-icon icon="exchange" size="22px" fixed-width="true" style="color:#87888f"></ons-icon><span style="font-size:20px;margin-left: 10px;">Transaction details</span>
         </ons-list-item>
-          
+          <ons-list-header>Others</ons-list-header>
+          <ons-list-item  onclick="menu.setMainPage('Transaction details.html', {closeMenu: true})">
+            <ons-icon icon="info-circle" size="22px" fixed-width="true" style="color:#87888f"></ons-icon><span style="font-size:20px;margin-left: 10px;">Help</span>
+        </ons-list-item>
+          <ons-list-item  onclick="menu.setMainPage('About.html', {closeMenu: true})">
+            <ons-icon icon="globe" size="22px" fixed-width="true" style="color:#87888f"></ons-icon><span style="font-size:20px;margin-left: 10px;">About</span>
+        </ons-list-item>
       </ons-list>
         <ons-bottom-toolbar style="height: 57px;display:none;" id="pg_signOutBottombar">
             <div class="formarea" style="margin: 6px 13px 11px;">
@@ -114,6 +126,7 @@
     
 <!----- MKT stuffs ------>
     <ons-template id="Markets.html">
+        
         
         
     
@@ -143,88 +156,160 @@
                             <ons-toolbar-button>  
                              <!-- <ons-icon icon="ion-search" style="font-size: 43px; width: 1em;border-left-color: #424242;border-left-width: thin;border-left-style: solid;"></ons-icon>--> 
                              
-                         <div class="pg_brokerLogoIN"  style="">
-                                    WOODLAND LIMITED
+                        <div class="pg_brokerLogoIN"  style="">
+                                   
                                 </div>
-                                 <img id="pg_brokerIMGS" src="img/GTB.png" style="">  
+                                 <img class="pg_brokerIMGS" src="" style="">  
                               </ons-toolbar-button>   
                           
                         </div>
                         
                     </ons-toolbar>
-              <!--<div class="navigation-bar">
-                      <div class="navigation-bar__center">
+          <div class="tab-bar tab-bar--top tab-bar--top-border" style="box-shadow: 0px 5px 12px 1px rgba(0, 0, 0, 0.51);">
+  <label class="tab-bar__item tab-bar--top-border__item">
+    <input id="overview" type="radio" name="top-tab-bar-b" checked="checked">
+    <button  class="tab-bar__button tab-bar--top-border__button">
+      Overview
+    </button>
+  </label>
 
-                        <input type="search" class="search-input" style="width: 96%; margin: 6px auto 6px auto;" placeholder="Broker name here......">
-                      </div>
+  <label class="tab-bar__item tab-bar--top-border__item">
+    <input id="topgainers" id="overview" type="radio" name="top-tab-bar-b">
+    <button class="tab-bar__button tab-bar--top-border__button" onclick="displayTopgainerlist()">
+      Top Gainers
+    </button>
+  </label>
 
-                    </div>--->
-                <!--<p style="text-align: center; color: #999; padding-top: 100px;">Page1 Contents</p>-->
-                        
-                          <!--<ons-list>
-                              
-                              
-                               <ons-list-item ons-lazy-repeat="MyDelegate">
-
-
-
-
-
-                              </ons-list-item>
-                           
-                  </ons-list>--->
+  <label  class="tab-bar__item tab-bar--top-border__item">
+    <input id="toplosers" type="radio" name="top-tab-bar-b">
+    <button class="tab-bar__button tab-bar--top-border__button" onclick="displayToploserslist()">
+      Top Losers
+    </button>
+  </label>
+</div>
                     
                     
-               
-                     <!--<ons-list-item modifier="chevron" class="list-item-container">
-                                  <div class="list-item-left">
-                                    <img src="img/logo.png"  class="avator">
-                                      <h4>DAX</h4>
-                                  </div>
-                                  <div class="list-item-right">
-                                    <div class="list-item-content">
-                                      <div class="name">Daniel
-                                        <span class="lucent">@Danny</span>
-                                      </div>
-
-                                      <span class="desc">Hi, how are you? Glad to hear you are interested in our project.</span>
-                                    </div>
-                                  </div>
-                            </ons-list-item>-->
-                    <ons-list>
-                        <ons-list-item  class="list-item-container" style="border-bottom-color: rgba(204, 204, 204, 0.53); border-bottom-style: groove;" onclick="myNavigator.pushPage('listdesp.html',{animation:'slide'})"  modifier="tappable"> 
-                        <ons-row>
-                            <!--<ons-col width="95px">
-                              <img src="img/logo.png" class="thumbnail">
-                            </ons-col>--->
-                            <ons-col>
-                              <div class="name" style="font-size: x-large;font-weight: 800;margin-bottom:3%;">
-                                GTB
-                              </div>
-                              <div class="location" style="font-size:small;">
-                                  GUARANTY TRUST BANK
-                              </div>
-                                
-                            </ons-col>      
-                            <ons-col width="40px" style="flex: inherit;max-width: 98px;margin-right:12%;">
-                                <div class="name"style="font-size: x-large;font-weight: 900;">
-                                32.90
-                                </div>  
-                                <div class="location" style="font-size:large;color: rgb(26, 249, 1);">
-                                  +1.233
-                              </div>
-                            </ons-col>
-                      </ons-row>
-                        </ons-list-item>
-                    </ons-list>
-
-
+                   <ul class="list" id="mylist" style="">
+                    
+                 </ul>
+                     <ul class="list" id="mylist2" style="display:none">
+                    
+                 </ul>
+                    <ul class="list" id="mylist3" style="display:none">
+                    
+                 </ul>
 
 
                   
               </ons-page>
         </ons-navigator>
     </ons-template>
+    
+    <ons-template id="Mktdescription.html">   
+        
+        <ons-page >
+
+            <ons-toolbar>
+              <div class="left" style="line-height: 44px;">
+               
+                   <ons-back-button>
+                  
+                  
+                  </ons-back-button> 
+                  
+                  
+             
+              </div>
+             
+              <div class="right">
+           
+          </div>
+                
+            </ons-toolbar>
+            <div class="navigation-bar" style="height: 67px;">
+          <div class="navigation-bar__center">
+              <div id="code1" class="name" style="text-align:center;font-size: 45px;font-weight: 900;margin-top: 9px;">
+                            
+                    </div>
+                    <div id="name1"  class="location" style="text-align:center;font-weight:700;font-size:large;">
+
+                    </div>
+            
+          </div>
+                
+        </div>
+            
+            <ul class="list" id="Mktdescriptionlist">
+            
+              <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Price Date: 
+                    </div>
+                    <div id= "pricedate"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Market Price: 
+                    </div>
+                    <div id= "marketprice"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           
+                           Deal Count: 
+                    </div>
+                    <div id= "dealcount"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                            Volume: 
+                    </div>
+                    <div id= "volume"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Value: 
+                    </div>
+                    <div id= "value"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+               
+        </ul>
+            
+            
+            
+            
+            
+            
+            
+            
+          </ons-page>
+</ons-template>
+    
 <!----- MKT stuffs END ------>
     
     
@@ -281,7 +366,7 @@
         
         
         
-      <ons-page>
+      <ons-page id="my-news">
         <ons-toolbar>
           <div class="left">
                         <ons-toolbar-button ng-click="menu.toggleMenu()">
@@ -294,20 +379,20 @@
             <div class="center">
             News
             </div>
-                        <div class="right">
-                            <ons-toolbar-button onclick="menu.setMainPage('search.html', {closeMenu: true})">
-                                <ons-icon icon="ion-search" style="font-size: 43px; width: 1em;border-left-color: #424242;border-left-width: thin;border-left-style: solid;"></ons-icon>
+                       <div class="right">
+                            <ons-toolbar-button onclick="">
+                                <div class="pg_brokerLogoIN"  style="">
+                                   
+                                </div>
+                                 <img class="pg_brokerIMGS" src="" style="">  
                             </ons-toolbar-button>
                         </div>
         </ons-toolbar>
 
-        <ons-list>
-                              
-
-
-
-
-          </ons-list>
+      <ul class="list" id="myNewslist">
+        
+          
+     </ul>
       </ons-page>
     </ons-template>
 <!----- News stuffs ENDS ------>
@@ -318,8 +403,8 @@
         
         
         
-        
-      <ons-page>
+     <ons-navigator title="Navigator" var="myportNavigator">   
+      <ons-page id="my-port">
         <ons-toolbar>
           <div class="left">
                         <ons-toolbar-button ng-click="menu.toggleMenu()">
@@ -333,21 +418,175 @@
             Portfolio
             </div>
                         <div class="right">
-                            <ons-toolbar-button onclick="menu.setMainPage('search.html', {closeMenu: true})">
-                                <ons-icon icon="ion-search" style="font-size: 43px; width: 1em;border-left-color: #424242;border-left-width: thin;border-left-style: solid;"></ons-icon>
+                           <ons-toolbar-button onclick="">
+                                <div class="pg_brokerLogoIN"  style="">
+                                   
+                                </div>
+                                 <img class="pg_brokerIMGS" src="" style="">  
                             </ons-toolbar-button>
                         </div>
         </ons-toolbar>
 
-        <ons-list>
-                              
-
-
-
-
-          </ons-list>
-      </ons-page>
+          
+          
+          <ul class="list" id="port_list">
+              
+          
+          
+          </ul>
+             </ons-page>
+         </ons-navigator>
     </ons-template>
+    
+<ons-template id="PORTdescription.html">   
+        <ons-page >
+
+            <ons-toolbar>
+              <div class="left" style="line-height: 44px;">
+               
+                   <ons-back-button>
+                  
+                  
+                  </ons-back-button> 
+                  
+                  
+             
+              </div>
+             
+              <div class="right">
+           
+          </div>
+                
+            </ons-toolbar>
+            <div class="navigation-bar" style="height: 67px;    background-color: rgba(0, 0, 0, 0.56);">
+          <div class="navigation-bar__center">
+              <div id="code2" class="name" style="text-align:center;font-size: 30px;font-weight: 900;margin-top: 9px;position: relative;top: 8px;text-shadow: 0px 0px 10px #000;">
+                            
+                    </div>
+                    <div id="name2"  class="location" style="text-align:center;font-weight:700;font-size:large;color: rgba(125, 125, 125, 0.68);opacity: 1;">
+
+                    </div>
+            
+          </div>
+                
+        </div>
+            
+            <ul class="list" id="PORTdescription">
+            
+              <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Volume: 
+                    </div>
+                    <div id= "port_volume"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Unit Price: 
+                    </div>
+                    <div id= "port_unitprice"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           
+                           Total Cost: 
+                    </div>
+                    <div id= "port_totalcost"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                            Cost Weight(%): 
+                    </div>
+                    <div id= "port_costweight"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                 <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Current Market Price: 
+                    </div>
+                    <div id= "port_currentmktprice"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                 <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Current Market value: 
+                    </div>
+                    <div id= "port_currentmktvalue"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Market Weight(%): 
+                    </div>
+                    <div id= "port_mktweight"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+               
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Total Gain/Loss: 
+                    </div>
+                    <div id= "port_totalgainloss"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Capital Gain/Loss(%): 
+                    </div>
+                    <div id= "port_capitalgainloss"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+               
+               
+        </ul>
+            
+            
+            
+            
+            
+            
+            
+            
+          </ons-page>
+</ons-template>
 <!-----  Portfolio ENDS ------>
     
 <!-----  MD_Buy stuffs ------>
@@ -356,7 +595,7 @@
         
         
         
-      <ons-page>
+      <ons-page id="my-MDBuy">
         <ons-toolbar>
           <div class="left">
                         <ons-toolbar-button ng-click="menu.toggleMenu()">
@@ -370,19 +609,120 @@
             Buy
             </div>
                         <div class="right">
-                            <ons-toolbar-button onclick="menu.setMainPage('search.html', {closeMenu: true})">
-                                <ons-icon icon="ion-search" style="font-size: 43px; width: 1em;border-left-color: #424242;border-left-width: thin;border-left-style: solid;"></ons-icon>
+                            <ons-toolbar-button onclick="">
+                                <div class="pg_brokerLogoIN"  style="">
+                                   
+                                </div>
+                                 <img class="pg_brokerIMGS" src="" style="">  
                             </ons-toolbar-button>
                         </div>
         </ons-toolbar>
+            <div class="navigation-bar">
+                
+                <div class="user_accdetails" align="center" style=""> 
+                    <div class="user_accdetailscontainer" style="">
+                        <div class="name"style="margin-top: 13px;text-shadow: 0px 0px 8px #000;font-size: small;font-weight: bold;">
+                        OMS Buy Cost <br/><span>(<img width="12px" src="img/nigeria-naira-currency-symbol.svg"/>)</span>
+                        </div>
+                        
+                        <div id="MDbuy_omsbuycost" class="location" style="opacity: 0.8;font-size:9px;font-size: 2.5vw; ">
+                        0.00
+                        </div>
+                        
+                    </div>
+                    <div class="user_accdetailscontainer" style="">
+                        <div class="name"style="margin-top: 13px;text-shadow: 0px 0px 8px #000;font-size: small;font-weight: bold;">
+                        Uncleared Effect<br/><span><img width="12px" src="img/nigeria-naira-currency-symbol.svg" style="opacity:0;"/></span>
+                        </div>
+                        
+                        <div id="MDbuy_unclearedeffect" class="location" style="opacity: 0.8;font-size:9px;font-size: 2.5vw; ">
+                        0.00
+                        </div>
+                        
+                    </div>
+                    <div class="user_accdetailscontainer" style="">
+                        <div class="name"style="margin-top: 13px;text-shadow: 0px 0px 8px #000;font-size: small;font-weight: bold;">
+                        Cleared Balance<br/><span>(<img width="12px" src="img/nigeria-naira-currency-symbol.svg"/>)</span>
+                        </div>
+                        
+                        <div id="MDbuy_clearedbalance"  class="location" style="opacity: 0.8;font-size:9px;font-size: 2.5vw; ">
+                        0.00
+                        </div>
+                        
+                    </div>
+                     <div class="user_accdetailscontainer" style="">
+                         <div class="name"style="margin-top: 13px;text-shadow: 0px 0px 8px #000;font-size: small;font-weight: bold;">
+                        OMS Balance<br/><span>(<img width="12px" src="img/nigeria-naira-currency-symbol.svg"/>)</span>
+                        </div>
+                         
+                         <div id="MDbuy_omsbalance"  class="location" style="opacity: 0.8;font-size:9px;font-size: 2.5vw; ">
+                        0.00
+                        </div>
+                         
+                    </div>
+                
+                </div>
+          
+          </div>
+          
+          <div class="formarea">
+              <div class="form-row">
+                    <label>Security</label>
+                   <!-- <input type="text" class="text-input width-full" placeholder="Select Security here....." value="">-->
+                  <select id="MDbuy_security" class="text-input widthfull" title="Security" style="width: 100%;padding: 8px 8px 7px;height: 100%;">
+                   
+                  <option id="mdbuysecurityemptyoption"></option>
+                  </select>
+             </div>
+               <br/>    
+            
+             <div class="form-row">
+                  <label>Time in force</label>
+                   <select id="MDbuy_timeinforce" class="text-input widthfull" title="Security" style="width: 100%;padding: 8px 8px 7px;height: 100%;">
+                   <option id="mdbuytimeinforceemptyoption"></option>
+                  </select>
+              </div>
+                 
+            <br/> 
+            <div class="form-row"> 
+                   <label>Expiry Date</label>
+                   <input id="MDbuy_expirydate" type="text" class="text-input width-full" placeholder="" value="">     
+              </div> 
+               <br/>    
+             
+              <div class="form-row"> 
+                   <label>Number of Units</label>
+                   <input id="MDbuy_numberofunits" type="text" class="text-input width-full" placeholder="" value="">
+            
+              </div>
+                 <br/>    
+              
+                <div class="form-row">
+                    <label>Order Condition</label>
+                   <!-- <input type="text" class="text-input width-full" placeholder="Select Security here....." value="">-->
+                  <select id="MDbuy_ordercondition" class="text-input widthfull" title="Security" style="width: 100%;padding: 8px 8px 7px;height: 100%;">
+                     <option id="mdbuyorderconditionemptyoption"></option>
+                  </select>
+             </div>
 
-        <ons-list>
-                              
-
-
-
-
-          </ons-list>
+               <br/>    
+              
+                <div id="MDbuylimit_priceform" class="form-row" style="display:none;">
+                    <label>Price<span>(<img width="12px" src="img/nigeria-naira-currency-symbol.svg"/>)</span></label>
+                   <input id="MDbuylimit_price" type="text" class="text-input width-full" placeholder="" value="">
+                  <!-- <select id="MDbuylimit_price" class="text-input widthfull" title="Security" style="width: 100%;padding: 8px 8px 7px;height: 100%;">-->
+                   
+                  
+                  </select>
+             </div>
+              <br/>
+               <div class="form-row">
+                   <button  class="button button--large--cta" onclick="">Submit</button>
+             </div>
+          </div>
+          
+          
+       
       </ons-page>
     </ons-template>
 <!-----  MD_Buy ENDS ------>
@@ -393,7 +733,7 @@
         
         
         
-      <ons-page>
+      <ons-page id="my-MD_Sell">
         <ons-toolbar>
           <div class="left">
                         <ons-toolbar-button ng-click="menu.toggleMenu()">
@@ -407,31 +747,435 @@
             Sell
             </div>
                         <div class="right">
-                            <ons-toolbar-button onclick="menu.setMainPage('search.html', {closeMenu: true})">
-                                <ons-icon icon="ion-search" style="font-size: 43px; width: 1em;border-left-color: #424242;border-left-width: thin;border-left-style: solid;"></ons-icon>
+                            <ons-toolbar-button onclick="">
+                                <div class="pg_brokerLogoIN"  style="">
+                                   
+                                </div>
+                                 <img class="pg_brokerIMGS" src="" style="">  
                             </ons-toolbar-button>
                         </div>
         </ons-toolbar>
 
-        <ons-list>
-                              
-
-
-
-
-          </ons-list>
+       <div class="navigation-bar">
+                
+                <div class="user_accdetails" align="center" style="text-align: -webkit-center;"> 
+                   <!-- <div class="user_accdetailscontainer2" style="">
+                        <div class="name"style="margin-top: 13px;text-shadow: 0px 0px 8px #000;font-size: small;font-weight: bold;">
+                        OMS Buy Cost <br/><span>(<img width="12px" src="img/nigeria-naira-currency-symbol.svg"/>)</span>
+                        </div>
+                        
+                        <div id="MDsell_omsbuycost" class="location" style="opacity: 0.8;font-size:9px;font-size: 2.5vw; ">
+                        0.00
+                        </div>
+                        
+                    </div>--->
+                    <div class="user_accdetailscontainer2" style="float: none;">
+                        <div class="name"style="margin-top: 13px;text-shadow: 0px 0px 8px #000;font-size: small;font-weight: bold;">
+                       Stock Balance <br/><span><img width="12px" src="img/nigeria-naira-currency-symbol.svg" style="opacity:0;"/></span>
+                        </div>
+                        
+                        <div id="MDsell_unclearedeffect" class="location" style="opacity: 0.8;font-size:9px;font-size: 2.5vw; ">
+                        0.00
+                        </div>
+                        
+                    </div>
+                 
+                    </div>
+                
+                </div>
+          
+          </div>
+          
+          <div class="formarea">
+              <div class="form-row">
+                    <label>Security</label>
+                   <!-- <input type="text" class="text-input width-full" placeholder="Select Security here....." value="">-->
+                  <select id="MD_security" class="text-input widthfull" title="Security" style="width: 100%;padding: 8px 8px 7px;height: 100%;">
+                    <option id="mdsellsecurityemptyoption"></option>
+                  
+                  </select>
+             </div>
+               <br/>    
+            
+             <div class="form-row">
+                  <label>Time in force</label>
+                   <select id="MDsell_timeinforce" class="text-input widthfull" title="Security" style="width: 100%;padding: 8px 8px 7px;height: 100%;">
+                        
+                  <option id="mdselltimeinforceemptyoption"></option>
+                  </select>
+              </div>
+                 
+            <br/> 
+            <div class="form-row"> 
+                   <label>Expiry Date</label>
+                   <input id="MDsell_expirydate" type="text" class="text-input width-full" placeholder="" value="">     
+              </div> 
+               <br/>    
+             
+              <div class="form-row"> 
+                   <label>Number of Units</label>
+                   <input id="MDsell_numberofunits" type="text" class="text-input width-full" placeholder="" value="">
+            
+              </div>
+                 <br/>    
+              
+                <div class="form-row">
+                    <label>Order Condition</label>
+                   <!-- <input type="text" class="text-input width-full" placeholder="Select Security here....." value="">-->
+                  <select id="MDsell_ordercondition" class="text-input widthfull" title="Security" style="width: 100%;padding: 8px 8px 7px;height: 100%;">
+                   <option id="mdsellorderconditionemptyoption"></option>
+                  
+                  </select>
+             </div>
+                 <br/>    
+              
+                <div id="MDselllimit_priceform" class="form-row" style="display:none;">
+                    <label>Price<span>(<img width="12px" src="img/nigeria-naira-currency-symbol.svg"/>)</span></label>
+                    <input id="MDselllimit_price" type="text" class="text-input width-full" placeholder="" value="">
+                 <!-- <select id="MDselllimit_price" class="text-input widthfull" title="Security" style="width: 100%;padding: 8px 8px 7px;height: 100%;">-->
+                   
+                  
+                  </select>
+             </div>
+              <br/>
+               <div class="form-row">
+                   <button  class="button button--large--cta" onclick="">Submit</button>
+             </div>
+          </div>
       </ons-page>
     </ons-template>
 <!-----  MD_Sell ENDS ------>
     
+<!------ Pending Stuffs  ----------->
+
+ <ons-template id="Pending.html">
+        
+        
+        
+    
+            <ons-navigator title="Navigator" var="mypendNavigator">
+                <ons-page id="my-pending">
+
+                    <ons-toolbar>
+                     <div class="left">
+                        <ons-toolbar-button ng-click="menu.toggleMenu()">
+                           <ons-icon icon="ion-navicon" style="font-size: 43px; width: 1em;border-right-color: #424242;border-right-width: thin;border-right-style: solid;"></ons-icon>
+                       
+                                    
+                         </ons-toolbar-button>
+                                                              
+                      </div>
+<div id="pg_navbar" style="" class="center"></div>
+                        <div class="right">
+                            
+                            
+                           <!--
+                             <p class="pg_brokerLogoINtxt" style="">WOODLAND LIMITED</p>
+                                     <img src="img/GTB.png" style="width: 42px;/* float:left */margin-top: -24px;">
+                                
+                                -->
+                             
+                              
+                `            <ons-toolbar-button onclick="">
+                                <div class="pg_brokerLogoIN"  style="">
+                                   
+                                </div>
+                                 <img class="pg_brokerIMGS" src="" style="">  
+                            </ons-toolbar-button>  
+                          
+                        </div>
+                        
+                    </ons-toolbar>
+          <div class="tab-bar tab-bar--top tab-bar--top-border" style="box-shadow: 0px 5px 12px 1px rgba(0, 0, 0, 0.51);">
+  <label class="tab-bar__item tab-bar--top-border__item">
+    <input id="buy" type="radio" name="top-tab-bar-b" checked="checked">
+    <button  class="tab-bar__button tab-bar--top-border__button">
+      Buy
+    </button>
+  </label>
+
+  <label class="tab-bar__item tab-bar--top-border__item">
+    <input id="sell" id="overview" type="radio" name="top-tab-bar-b">
+    <button class="tab-bar__button tab-bar--top-border__button" onclick="displayTopgainerlist()">
+      Sell
+    </button>
+  </label>
+
+  
+</div>
+                    
+                    
+                   <ul class="list" id="pendbuylist" style="">
+                    
+                 </ul>
+                     <ul class="list" id="pendselllist" style="display:none">
+                    
+                 </ul>
+                    
+
+
+                  
+              </ons-page>
+        </ons-navigator>
+    </ons-template>
+    
+    <ons-template id="pendbuydescription.html"> 
+        
+        
+        
+        <ons-page >
+
+            <ons-toolbar>
+              <div class="left" style="line-height: 44px;">
+               
+                   <ons-back-button>
+                  
+                  
+                  </ons-back-button> 
+                  
+                  
+             
+              </div>
+             
+              <div class="right">
+           <ons-toolbar-button onclick="">
+                                <div class="pg_brokerLogoIN"  style="">
+                                   
+                                </div>
+                                 <img class="pg_brokerIMGS" src="" style="">  
+                            </ons-toolbar-button>
+          </div>
+                
+            </ons-toolbar>
+            <div class="navigation-bar" style="height: 67px;">
+          <div class="navigation-bar__center">
+              <div id="code5" class="name" style="text-align:center;font-size: 27px;font-weight: 900;margin-top: 9px;position: relative;top: 15px;">
+                            
+                    </div>
+                    <div id="name1"  class="location" style="text-align:center;font-weight:700;font-size:large;">
+
+                    </div>
+            
+          </div>
+                
+        </div>
+            
+            <ul class="list" id="Pendescription">
+            
+              <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Quantity: 
+                    </div>
+                    <div id= "quantity"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                          Condition: 
+                    </div>
+                    <div id= "condition"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           
+                           Price: 
+                    </div>
+                    <div id= "price"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Time In Force: 
+                    </div>
+                    <div id= "timeinforce"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Expiry: 
+                    </div>
+                    <div id= "expiry2"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                          Date: 
+                    </div>
+                    <div id= "date2"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+               
+        </ul>
+            
+            
+            
+            
+            
+            
+            
+            
+          </ons-page>
+</ons-template>
+ <ons-template id="pendselldescription.html"> 
+     
+        
+        
+        <ons-page >
+
+            <ons-toolbar>
+              <div class="left" style="line-height: 44px;">
+               
+                   <ons-back-button>
+                  
+                  
+                  </ons-back-button> 
+                  
+                  
+             
+              </div>
+             
+              <div class="right">
+           <ons-toolbar-button onclick="">
+                                <div class="pg_brokerLogoIN"  style="">
+                                   
+                                </div>
+                                 <img class="pg_brokerIMGS" src="" style="">  
+                            </ons-toolbar-button>
+          </div>
+                
+            </ons-toolbar>
+            <div class="navigation-bar" style="height: 67px;">
+          <div class="navigation-bar__center">
+              <div id="code6" class="name" style="text-align:center;font-size: 27px;font-weight: 900;margin-top: 9px;position: relative;top: 15px;">
+                            
+                    </div>
+                    <div id="name2"  class="location" style="text-align:center;font-weight:700;font-size:large;">
+                            
+                    </div>
+            
+          </div>
+                
+        </div>
+            
+            <ul class="list" id="Pendsellescription">
+            
+              <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Quantity: 
+                    </div>
+                    <div id="quantity6"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                          Condition: 
+                    </div>
+                    <div id="condition6"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           
+                           Price: 
+                    </div>
+                    <div id="price6"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Time In Force: 
+                    </div>
+                    <div id="timeinforce6"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Expiry: 
+                    </div>
+                    <div id="expiry6"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                          Date: 
+                    </div>
+                    <div id="date6"  class="name" style="text-align:right;font-weight:700;font-size: 24px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+               
+        </ul>
+            
+            
+            
+            
+            
+            
+            
+            
+          </ons-page>
+</ons-template>
+
+<!--------Pending Stuffs  ----------->
+
+
+
+
+
  <!-----  Transaction details stuffs ------>
 <ons-template id="Transaction details.html">
     
-        
-        
-        
-        
-      <ons-page>
+    
+     <ons-navigator title="Navigator"  var="myTDNavigator">
+      <ons-page id="my-TD">
         <ons-toolbar>
           <div class="left">
                         <ons-toolbar-button ng-click="menu.toggleMenu()">
@@ -445,54 +1189,200 @@
             Transaction details
             </div>
                         <div class="right">
-                            <ons-toolbar-button onclick="menu.setMainPage('search.html', {closeMenu: true})">
-                                <ons-icon icon="ion-search" style="font-size: 43px; width: 1em;border-left-color: #424242;border-left-width: thin;border-left-style: solid;"></ons-icon>
+                           <ons-toolbar-button onclick="">
+                                <div class="pg_brokerLogoIN"  style="">
+                                   
+                                </div>
+                                 <img class="pg_brokerIMGS" src="" style="">  
                             </ons-toolbar-button>
                         </div>
         </ons-toolbar>
-
-        <ons-list>
-                              
-
-
-
-
-          </ons-list>
+         <div class="navigation-bar" style="height: 51px;">
+              <div class="left">
+              <div class="name" style="position: relative;top: 23px;font-size: 13px;left: 3px;
+">Displaying records of past 6 months</div>
+              </div>
+          <div class="right">
+              <div class="location" align="right" style="
+    position: relative;
+    top: -10px;
+">
+              
+              Amount brought foward:
+              </div>
+               <div class="location" align="right" style="position: relative;top: -10px;left: -8px;color: #FF9F0A;opacity: 1;">
+              
+              1,996,173.36
+              </div>
+              <div class="location" style="opacity: 1;margin-top: -15px;">
+                  <button onclick="alertdialogTDSerach.show()" class="button" style="width: 100%;">Serach by date</button>
+              
+              </div>
+            
+              </div>
+            
+          </div>
+        
+        <ul class="list" id="TD_list" style="margin-top: 40px;">
+          
+          </ul>
+          
+          
       </ons-page>
+         </ons-navigator>
     </ons-template>
-<!-----  Transaction details ENDS ------>
+
+<ons-template id="TDdescription.html">  
     
- <!--<ons-template id="search.html">   <ons-page>
+        <ons-page >
 
             <ons-toolbar>
               <div class="left" style="line-height: 44px;">
-                <ons-toolbar-button onclick="menu.setMainPage('Markets.html', {closeMenu: true})">
-                                <ons-icon icon="
- chevron-left" style="font-size: 43px; width: 1em;border-right-color: #424242;border-right-width: thin;border-right-style: solid;"></ons-icon>
-                    
-                            </ons-toolbar-button>
+               
+                   <ons-back-button>
+                  
+                  
+                  </ons-back-button> 
+                  
+                  
+             
               </div>
-              <div class="center">
-                Broker Search
-                </div>
+             
               <div class="right">
-            <ons-toolbar-button>
-            
-                
-                
-            </ons-toolbar-button>
+           <ons-toolbar-button onclick="">
+                                <div class="pg_brokerLogoIN"  style="">
+                                   
+                                </div>
+                                 <img class="pg_brokerIMGS" src="" style="">  
+                            </ons-toolbar-button>
           </div>
                 
             </ons-toolbar>
-            <div class="navigation-bar">
+            <div class="navigation-bar" style="height: 67px;    background-color: rgba(0, 0, 0, 0.56);">
           <div class="navigation-bar__center">
+              <div id="code4" class="name" style="text-align:center;font-size: 22px;font-weight: 900;margin-top: 9px;position: relative;top: 8px;text-shadow: 0px 0px 10px #000;">
+                            
+                    </div>
+                    <div id="name4"  class="location" style="text-align:center;font-weight:700;font-size:large;color: rgba(125, 125, 125, 0.68);opacity: 1;">
 
-            <input type="search" class="search-input" style="width: 96%; margin: 6px auto 6px auto;" placeholder="Broker name here......">
+                    </div>
+            
           </div>
                 
         </div>
+            
+            <ul class="list" id="TDdescription">
+            
+              <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                          Date: 
+                    </div>
+                    <div id="td_date"  class="name" style="text-align:right;font-weight:700;font-size: 21px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Reference: 
+                    </div>
+                    <div id="td_reference"  class="name" style="text-align:right;font-weight:700;font-size: 21px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           
+                          Despcription: 
+                    </div>
+                    <div id="td_despcription"  class="name" style="text-align: left;font-weight:700;font-size: 14px;position: relative;top: -4px;left: 93px;margin-right: 13px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                            Debit: 
+                    </div>
+                    <div id="td_debit"  class="name" style="text-align:right;font-weight:700;font-size: 21px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                 
+                 <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                          Credit: 
+                    </div>
+                    <div id="td_credit"  class="name" style="text-align:right;font-weight:700;font-size: 21px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+                <li class="list__item">
+                <div class="col">
+                    <div  class="location" style="text-align:left;font-size:smaller;height: 13px;">
+                           Balance: 
+                    </div>
+                    <div id="td_balance"  class="name" style="text-align:right;font-weight:700;font-size: 21px;position: relative;top: -4px;">
+
+                    </div>
+                 </div>
+
+            </li>
+              
+               
+        </ul>
+            
+            
+            
+            
+            
+            
+            
+            
           </ons-page>
-</ons-template>--->
+</ons-template>
+<ons-template id="alert-dialogTDSerach.html">
+<ons-alert-dialog var="alertdialogTDSerach" style="border-radius: 2px;">
+  <div class="alert-dialog-title"><strong style="color:#000;">Serach by date</strong></div>
+  <div class="alert-dialog-content">
+  <ul class="list" style="border-top: none;">
+      <li class="list__item">
+        <input type="text" class="text-input text-input--transparent" style="width:100%;color:#000; margin-top:4px;" placeholder="Date From">
+      </li>
+      <li class="list__item">
+        <input type="text" class="text-input text-input--transparent" style="width:100%;color:#000; margin-top:4px;" placeholder="Date To">
+      </li>
+     
+    </ul>
+      <div class="button-bar" style="margin-top: 23px;width: 246px;" >
+          <div class="button-bar__item" style="padding-right:10px">
+      <button class="button button--large">Serach</button>
+          </div>
+           <div class="button-bar__item" style="padding-left:10px">
+           <button class="button button--large" onclick="alertdialogTDSerach.hide()">Cancel</button>
+               </div>
+    </div>
+  </div>
+ 
+</ons-alert-dialog>
+</ons-template>
+
+<!-----  Transaction details ENDS ------>
+    
+ 
     
 <!--------- Select Broker stuffs --------->
 <ons-template id="brokerList.html">
@@ -501,6 +1391,7 @@
 
  <!--------- brokerSignIn stuffs --------->
 <ons-template id="brokerSignIn.html">
+    
     
         
     
@@ -535,10 +1426,10 @@
     margin-top: 1%;
 ">
                         <div id="pg_SignInToBrokerlogodiv" class="form-row" style="" align="center">
-                            <img src="img/GTB.png" width="100px" style="margin-top: -5%;margin-left: -26%;margin-bottom: -14%;/* box-shadow: 0px 0px 16px 2px #000; */">
+                            <img id="pg_SignInToBrokerlogo" src="" width="100px" style="margin-top: -5%;margin-left: -26%;margin-bottom: -14%;/* box-shadow: 0px 0px 16px 2px #000; */">
                                </div>
                              <div class="form-row">  
-                           <h6 class="pg_SignInToBrokerNm" style=""> WOODLAND LIMITED</h6>
+                           <div class="pg_SignInToBrokerNm" style=""> </div>
                                </div>
                            </div>
                            
@@ -609,13 +1500,26 @@
           </div>
 
         </ons-page>        --->
+<ons-template id="alert-dialogLOGINFAIL.html">
+    
+  <ons-alert-dialog var="alertDialogLOGINFAIL">
+    <div class="alert-dialog-title"><strong style="color: #ff3333">Error!</strong></div>
+    <div class="alert-dialog-content">
+     Incorrect Username  or Password!
+    </div>
+    <div class="alert-dialog-footer">
+      <button class="alert-dialog-button" ng-click="alertDialogLOGINFAIL.hide();">OK</button>
+    </div>
+  </ons-alert-dialog>
+</ons-template>
    
 <!---- Choose Stock Exchange  stuff  ------->
 <ons-template id="alert-dialogSE.html">
     
+    
 
      
-  <ons-alert-dialog var="alertDialogSE" style="width: 130%; height: 200px; z-index: 20001; border-radius: 0px; display: block;background-color: #242424; background-size: 17%;">
+  <ons-alert-dialog var="alertDialogSE" style="width: 130%;height: 240px;z-index: 20001;border-radius: 0px;display: block;background-color: rgb(33, 33, 33);background-size: 17%;box-shadow: 0px 0px 32px -1px #000;">
       
       
      <ons-toolbar >
@@ -629,8 +1533,10 @@
     <!--<div class="alert-dialog-title"><strong style="color: #ff3333">Critical Alert!</strong></div>-->
     <div  style="margin-top: 65px;" class="alert-dialog-content">
       
-         <ons-button modifier="large--cta" onclick="displayNSE()" >NSE</ons-button><br>
-         <ons-button modifier="large--cta" onclick="displayGSE()" >GSE</ons-button>
+         <ons-button modifier="large--cta" onclick="displayNSE()" >
+            <img src="img/NSE%20logo.png" class="avator" style="position: relative;left: 55px;top: 4px;">
+             <span style="position: relative;top: -8px;left: 45px;">NSE</span></ons-button><br>
+         <ons-button modifier="large--cta" onclick="displayGSE()" ><img src="img/GSE%20logo.png" class="avator" style="position: relative;left: 55px;top: 4px;"><span style="position: relative;top: -8px;left: 49px;">GSE</span></ons-button>
         
     </div>
    <!-- <div class="alert-dialog-footer">
@@ -652,7 +1558,8 @@
   
  <ons-template id="alert-dialog.html">
      
-  <ons-alert-dialog var="alertDialog" id="pg_ChooseBroker" style="">
+     
+  <ons-alert-dialog var="alertDialog" id="pg_ChooseBroker" style="box-shadow: 0px 0px 18px 2px #000;">
       
       
       
@@ -676,9 +1583,9 @@
             </div>
         </ons-toolbar>
       
-     <ons-list>
+     <ons-list style="overflow:hidden; overflow-y:scroll;">
 
-        <ons-list-item modifier="chevron" class="list-item-container" onclick="navigatorSI.pushPage('brokerSignIn.html', { animation : 'slide' } )">
+        <ons-list-item id="WL_broker" modifier="chevron" class="list-item-container" onclick="navigatorSI.pushPage('brokerSignIn.html', { animation : 'slide' }); setTimeout('MLgetName()',100);">
           <div class="list-item-left">
             <img src="img/GTB.png" class="avator">
           </div>
@@ -689,12 +1596,26 @@
                 <span class="lucent">@Danny</span>
               </div>-->
 
-              <span class="desc">WOODLAND LIMMITED</span>
+              <span id="ML_broker_name" class="desc">WOODLAND LIMITED</span>
             </div>
           </div>
         </ons-list-item>
          
-         <ons-list-item modifier="chevron" class="list-item-container" onclick="navigatorSI.pushPage('brokerSignIn.html', { animation : 'slide' } )">
+         <ons-list-item id="DB_broker" modifier="chevron" class="list-item-container" onclick="navigatorSI.pushPage('brokerSignIn.html', { animation : 'slide' });setTimeout('DBgetName()',100); ">
+          <div class="list-item-left">
+            <img src="img/download.png" class="avator">
+          </div>
+            
+          <div class="list-item-right">
+            <div class="list-item-content">
+              <!--<div class="name">Daniel
+                <span class="lucent">@Danny</span>
+              </div>-->
+
+              <span id="DB_broker_name" class="desc">DUMBAL LIMITED </span>
+            </div>
+          </div>
+        </ons-list-item><ons-list-item id="IM_broker" modifier="chevron" class="list-item-container" onclick="navigatorSI.pushPage('brokerSignIn.html', { animation : 'slide' } )">
           <div class="list-item-left">
             <img src="img/GTB.png" class="avator">
           </div>
@@ -705,7 +1626,7 @@
                 <span class="lucent">@Danny</span>
               </div>-->
 
-              <span class="desc">WOODLAND LIMITED</span>
+              <span id="IM_broker_name" class="desc">IMPERIAL BROKERS LIMITED</span>
             </div>
           </div>
         </ons-list-item><ons-list-item modifier="chevron" class="list-item-container" onclick="navigatorSI.pushPage('brokerSignIn.html', { animation : 'slide' } )">
@@ -719,21 +1640,7 @@
                 <span class="lucent">@Danny</span>
               </div>-->
 
-              <span class="desc">WOODLAND LIMITED</span>
-            </div>
-          </div>
-        </ons-list-item><ons-list-item modifier="chevron" class="list-item-container" onclick="navigatorSI.pushPage('brokerSignIn.html', { animation : 'slide' } )">
-          <div class="list-item-left">
-            <img src="img/GTB.png" class="avator">
-          </div>
-            
-          <div class="list-item-right">
-            <div class="list-item-content">
-              <!--<div class="name">Daniel
-                <span class="lucent">@Danny</span>
-              </div>-->
-
-              <span class="desc">WOODLAND LIMITED</span>
+              <span class="desc">FICA PLC</span>
             </div>
           </div>
         </ons-list-item>
@@ -748,7 +1655,7 @@
                 <span class="lucent">@Danny</span>
               </div>-->
 
-              <span class="desc">WOODLAND LIMITED</span>
+              <span class="desc">ENTERPRISE LIMITED</span>
             </div>
           </div>
         </ons-list-item>
@@ -763,66 +1670,21 @@
                 <span class="lucent">@Danny</span>
               </div>-->
 
-              <span class="desc">WOODLAND LIMITED</span>
+              <span class="desc">PROGRAMOS SOFTWARE LIMITED</span>
             </div>
           </div>
         </ons-list-item>
-         <ons-list-item modifier="chevron" class="list-item-container" onclick="navigatorSI.pushPage('brokerSignIn.html', { animation : 'slide' } )">
-          <div class="list-item-left">
-            <img src="img/GTB.png" class="avator">
-          </div>
-            
-          <div class="list-item-right">
-            <div class="list-item-content">
-              <!--<div class="name">Daniel
-                <span class="lucent">@Danny</span>
-              </div>-->
-
-              <span class="desc">WOODLAND LIMMITED</span>
-            </div>
-          </div>
-        </ons-list-item>
-         
-      <ons-list-item modifier="chevron" class="list-item-container" onclick="navigatorSI.pushPage('brokerSignIn.html', { animation : 'slide' } )">
-          <div class="list-item-left">
-            <img src="img/GTB.png" class="avator">
-          </div>
-            
-          <div class="list-item-right">
-            <div class="list-item-content">
-              <!--<div class="name">Daniel
-                <span class="lucent">@Danny</span>
-              </div>-->
-
-              <span class="desc">WOODLAND LIMITED</span>
-            </div>
-          </div>
-        </ons-list-item>
-         <ons-list-item modifier="chevron" class="list-item-container" onclick="navigatorSI.pushPage('brokerSignIn.html', { animation : 'slide' } )">
-          <div class="list-item-left">
-            <img src="img/GTB.png" class="avator">
-          </div>
-            
-          <div class="list-item-right">
-            <div class="list-item-content">
-              <!--<div class="name">Daniel
-                <span class="lucent">@Danny</span>
-              </div>-->
-
-              <span class="desc">WOODLAND LIMITED</span>
-            </div>
-          </div>
-        </ons-list-item>
+       
       </ons-list>
         
         
         
         
         
-        <ons-bottom-toolbar style=" height: 59px;">
+        <ons-bottom-toolbar style=" height: 59px;padding: 8px 11px 11px 9px;">
         
             
-      <button class="button button--large--cta" ng-click="alertDialog.hide();" style="margin-top: 0px;">Cancel</button>
+      <button class="button button--large--cta" onclick="alertDialog.hide();showMktlist()" style="margin-top: 0px;">Cancel</button>
                
             
    </ons-bottom-toolbar>
@@ -919,10 +1781,106 @@
     </ons-template>
 <!------    Sign in page  ENDS -------->  
     
-    
-    
-  
 
+
+<!------------------ About page ------------------------>
+  
+<ons-template id="About.html">
+        
+        
+        
+    
+            <ons-navigator title="Navigator" var="myaboutNavigator">
+                <ons-page id="my-about">
+
+                    <ons-toolbar>
+                     <div class="left">
+                        <ons-toolbar-button ng-click="menu.toggleMenu()">
+                           <ons-icon icon="ion-navicon" style="font-size: 43px; width: 1em;border-right-color: #424242;border-right-width: thin;border-right-style: solid;"></ons-icon>
+                       
+                                    
+                         </ons-toolbar-button>
+                                                              
+                      </div>
+<div id="pg_navbar" style="" class="center"></div>
+                        <div class="right">
+                            
+                            
+                           <!--
+                             <p class="pg_brokerLogoINtxt" style="">WOODLAND LIMITED</p>
+                                     <img src="img/GTB.png" style="width: 42px;/* float:left */margin-top: -24px;">
+                                
+                                -->
+                             
+                              
+                `            <ons-toolbar-button onclick="">
+                                <div class="pg_brokerLogoIN"  style="">
+                                   
+                                </div>
+                                 <img class="pg_brokerIMGS" src="" style="">  
+                            </ons-toolbar-button>  
+                          
+                        </div>
+                        
+                    </ons-toolbar>
+         
+                       <ul class="list" style="border-bottom: 0px;">
+                    <li class="list__item" align="center" style="border-bottom: 0px;">
+                           <div class="name">
+                            <img src="img/programoslogook.png">
+                                
+                            </div>
+                           
+                           
+                           
+                           
+                           </li>
+                    <li class="list__item" style="border-bottom: 0px;">
+                           
+                            <div class="name" style="padding: 10px 21px 8px;text-align: justify;">
+                                TopGains mobile is Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                
+                            </div>
+                     </li>
+                           
+                            <li class="list__item" style="border-bottom: 0px;">
+                                <div class="name" align="center">
+                                <ons-button class="button--quiet" onclick="alert('Facebook')" style="color: #FFF;"> 
+                                <ons-icon icon="facebook-square" style="font-size: 43px; width: 1em;">
+                                    
+                                </ons-icon>
+                                </ons-button>
+                                <ons-button class="button--quiet" onclick="alert('Twitter')" style="color: #FFF;"> 
+                                <ons-icon icon="twitter-square" style="font-size: 43px; width: 1em;">
+                                    
+                                </ons-icon>
+                                </ons-button>
+                                    <ons-button class="button--quiet" onclick="alert('Email')" style="color: #FFF;"> 
+                                <ons-icon icon="envelope" style="font-size: 43px; width: 1em;">
+                                    
+                                </ons-icon>
+                                </ons-button>
+                                        <ons-button class="button--quiet" onclick="aboutphone()" style="color: #FFF;"> 
+                                <ons-icon icon="phone-square" style="font-size: 43px; width: 1em;">
+                                    
+                                </ons-icon>
+                                </ons-button>
+                                    
+                                    <ons-button class="button--quiet" onclick="alert('Website')" style="color: #FFF;"> 
+                                <ons-icon icon="globe" style="font-size: 43px; width: 1em;">
+                                    
+                                </ons-icon>
+                                </ons-button>
+                                        
+                                    </div>
+                           </li>
+                        </ul> 
+                  
+              </ons-page>
+        </ons-navigator>
+    </ons-template>
+
+<!------------------ About page ENDS ------------------------>
 
         
     </body>
