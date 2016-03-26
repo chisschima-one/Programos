@@ -489,7 +489,7 @@ function showMktlist(){
     //http://certification.programos.com.ng/goodpage.aspx?
     var coderesult = " ";
     modal.show();
-    $.get("http://localhost:59497/Default.aspx?", function(data, status){
+    $.get("http://certification.programos.com.ng/goodpage.aspx?", function(data, status){
       /// alert("Data: " + data + "\nStatus: " + status);
         
         loginStatus = status.toString();
