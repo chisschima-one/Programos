@@ -245,7 +245,9 @@ ons-list-item {
     margin-left: 11px;
     padding-left: 0px;
 }
-
+.pageNamedesp {
+	display: none
+}
 .user_accdetailscontainer{
     
         float: left;

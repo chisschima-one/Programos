@@ -23,6 +23,7 @@ $(document).on('ons-page:init', '#my-overview', function(event) {
 $(document).on('ons-page:init', '#my-page', function(event) {
     
    var navigator = event.component;
+    
   if(loggedin == "true"){
     setTimeout('$(".pg_brokerIMGS").css("display","inline-block"); $(".pg_brokerLogoIN").css("display","block");$(".pg_brokerLogoIN").append(selected_broker); $(".pg_brokerIMGS").attr("src",selected_broker_img);',100);
            } 
@@ -57,6 +58,14 @@ $(document).on('ons-page:init', '#my-port', function(event) {
         
     showPORTlist();
 });
+$(document).on('ons-page:init', '#my-portdesp', function(event) {
+     var navigator = event.component;
+     if(loggedin == "true"){
+    setTimeout('$(".pg_brokerIMGS").css("display","inline-block"); $(".pg_brokerLogoIN").css("display","block");$(".pg_brokerLogoIN").append(selected_broker); $(".pg_brokerIMGS").attr("src",selected_broker_img);',100);
+           } 
+       setTimeout('$(".pageNamedesp").css("display","inline-block");',1000); 
+    //showPORTlist();
+});
 $(document).on('ons-page:init', '#my-pending', function(event) {
     
     
@@ -88,7 +97,8 @@ $(document).on('ons-page:init', '#my-Penddescription', function(event) {
          
         if(loggedin == "true"){
     setTimeout('$(".pg_brokerIMGS").css("display","inline-block"); $(".pg_brokerLogoIN").css("display","block");$(".pg_brokerLogoIN").append(selected_broker); $(".pg_brokerIMGS").attr("src",selected_broker_img);',100);
-           } 
+           }
+    setTimeout('$(".pageNamedesp").css("display","inline-block");',1000); 
  //alert("mfhdhdghd");
      $("#code5").empty();
     $("#quantity").empty();   
@@ -116,6 +126,16 @@ $(document).on('ons-page:init', '#my-TD', function(event) {
     setTimeout('$(".pg_brokerIMGS").css("display","inline-block"); $(".pg_brokerLogoIN").css("display","block");$(".pg_brokerLogoIN").append(selected_broker); $(".pg_brokerIMGS").attr("src",selected_broker_img);',100);
            } 
     showTDlist();
+});
+$(document).on('ons-page:init', '#my-TDdesp', function(event) {
+    
+     var navigator = event.component;
+     
+        if(loggedin == "true"){
+    setTimeout('$(".pg_brokerIMGS").css("display","inline-block"); $(".pg_brokerLogoIN").css("display","block");$(".pg_brokerLogoIN").append(selected_broker); $(".pg_brokerIMGS").attr("src",selected_broker_img);',100);
+           } 
+    setTimeout('$(".pageNamedesp").css("display","inline-block");',1000); 
+    //showTDlist();
 });
 $(document).on('ons-page:init', '#my-news', function(event) {
     
@@ -151,8 +171,8 @@ $(document).on('ons-page:init', '#my-news', function(event) {
                  
                  '<li class="list__item list__item--chevron list__item--tappable" style="height: 95px;">' + 
                      
-                     '<div class="col" style="margin-top: 0px;margin-left: 0px;width: 100%"> <div class="name" style="font-size: 18px;font-weight: 700;">' +  newsHeader + ' </div>' + 
-                 ' <div align="left" class="desc" style="font-size: 16px;font-weight: normal;color: #ccc;">' + newsDescription + ' </div></div> <div class="col" style="width:40px;"></div>' + 
+                     '<div class="col" style="margin-top: 0px;margin-left: 0px;width: 100%"> <div class="name" style="font-size: 14px;font-weight: 700;">' +  newsHeader + ' </div>' + 
+                 ' <div align="left" class="desc" style="font-size: 12px;font-weight: normal;color: #ccc;">' + newsDescription + ' </div></div> <div class="col" style="width:40px;"></div>' + 
                  ' </li>'
                 
                 
@@ -238,7 +258,7 @@ $(document).on('ons-page:init', '#my-MD_Sell', function(event) {
         if(er == "MARKET" || er == ""){
          // alert(er);  
           //$("#MDbuylimit_priceform").css("display","block");
-           $("#MDbuylimit_priceform").hide('slow');
+           $("#MDselllimit_priceform").hide('slow');
         }
     });
 });
@@ -250,6 +270,13 @@ $(document).on('ons-page:init', '#my-about', function(event) {
         
     //showPORTlist();
 });
+
+/*$(document).on('ons-page:init', '#my-about', function(event) {
+     var navigator = event.component;
+  showSE();
+        
+    //showPORTlist();
+});*/
 $(document).ready(function(){
     //alert("dxgdgad");
     
@@ -279,10 +306,11 @@ ons.ready(function() {
     
            ons.createAlertDialog('alert-dialog.html').then(function(alertDialog) {
             
-               
+               displayBrokerlist();
           });
       ons.createAlertDialog('alert-dialogSE.html').then(function(alertDialogSE) {
-            alertDialogSE.show();
+            ///alertDialogSE.show();
+          showSE();
           });
     
      ons.createAlertDialog('alert-dialogLOGIN.html').then(function(alertDialogLOGINSUCCESS) {
@@ -303,6 +331,9 @@ ons.ready(function() {
                 
  });
 ////////////////////////////////////////////
+
+
+
 
 
 ///////// Display Market Price, Top Gainers, Top Losers  ////////
@@ -384,16 +415,14 @@ function showMktlistFor_TG(){
              }
            $("#mylist2").append('<li class="mktlist list__item" style="  border-bottom: 4px solid #171717;">'+
            ' <div class="col">'+
-            '<div class="name" style="font-size: x-large;font-weight: 800;margin-top: 13px;">'+ code +
+            '<div class="name" style="font-size: 14px;font-weight: 800;margin-top: 13px;position: relative;top: 4px;">'+ code +
             '</div>'+ 
-            '<div class="location" style="font-size: x-small;height: 38px;position: relative;top: -13px;">'+ name +
-                               
-        '</div>'+
-        ' <div align="right" class="name" style="font-size: x-large;height: 17px;margin-top: -59px;position: relative;padding-right: 10px;text-align: right;top: -1px;left: -196px;border-right-width: thin;border-right-color: #47484d;border-right-style: solid;">'+ open +
+            '<div class="location" style="font-size: x-small;height: 38px;position: relative;top: -13px;"></div>'+
+        ' <div align="right" class="name" style="font-size: medium;height: 17px;margin-top: -59px;position: relative;padding-right: 10px;text-align: right;top: -1px;left: -146px;border-right-width: thin;border-right-color: #47484d;border-right-style: solid;">'+ open +
             '</div>'+
-        '<div align="right" class="name" style="font-size: x-large;height: 17px;margin-top: -51px;position: relative;top: 27px;text-align: right;padding-right: 10px;left: -106px;border-right-width: thin;      border-right-color: #47484d;      border-right-style: solid;">'+ close +
+        '<div align="right" class="name" style="font-size: medium;height: 17px;margin-top: -51px;position: relative;top: 27px;text-align: right;padding-right: 10px;left: -76px;border-right-width: thin;      border-right-color: #47484d;      border-right-style: solid;">'+ close +
         '</div>'+
-        '<div align="right" class="name" style="font-size: x-large;height: 19px;margin-top: -50px;position: relative;text-align: right;top: 54px;padding-right: 10px;left: -12px;border-right-width: thin;      border-right-color: #47484d;      border-right-style: solid;'+ arrowcolor +'">'+ change +
+        '<div align="right" class="name" style="font-size: medium;height: 19px;margin-top: -50px;position: relative;text-align: right;top: 54px;padding-right: 10px;left: -12px;border-right-width: thin;      border-right-color: #47484d;      border-right-style: solid;'+ arrowcolor +'">'+ change +
         '</div>'+
         '<div class="name" style="position: relative;top: 36px;left: -7px;" align="right">'+
                                
@@ -416,10 +445,10 @@ function showMktlistFor_TG(){
 }
 function showMktlistFor_TL(){
     
-    //http://certification.programos.com.ng/goodpage.aspx?
+    //http://certification.programos.com.ng/Topgainer.aspx?
     //http://localhost:59497/toplosers.aspx
     modal.show();
-    $.get("http://certification.programos.com.ng/Topgainer.aspx?", function(data, status){
+    $.get("http://localhost:59497/toplosers.aspx", function(data, status){
       /// alert("Data: " + data + "\nStatus: " + status);   
         
         loginStatus = status.toString();
@@ -453,16 +482,14 @@ function showMktlistFor_TL(){
              }
            $("#mylist3").append('<li class="mktlist list__item"  style="  border-bottom: 4px solid #171717;">'+
            ' <div class="col">'+
-            '<div class="name" style="font-size: x-large;font-weight: 800;margin-top: 13px;">'+ code +
+            '<div class="name" style="font-size: 14px;font-weight: 800;margin-top: 13px;position: relative;top: 4px;">'+ code +
             '</div>'+ 
-            '<div class="location" style="font-size: x-small;height: 38px;position: relative;top: -13px;">'+ name +
-                               
-        '</div>'+
-        ' <div align="right" class="name" style="font-size: x-large;height: 17px;margin-top: -59px;position: relative;padding-right: 10px;text-align: right;top: -1px;left: -196px;border-right-width: thin;border-right-color: #47484d;border-right-style: solid;">'+ open +
+            '<div class="location" style="font-size: x-small;height: 38px;position: relative;top: -13px;"></div>'+
+        ' <div align="right" class="name" style="font-size: medium;height: 17px;margin-top: -59px;position: relative;padding-right: 10px;text-align: right;top: -1px;left: -146px;border-right-width: thin;border-right-color: #47484d;border-right-style: solid;">'+ open +
             '</div>'+
-        '<div align="right" class="name" style="font-size: x-large;height: 17px;margin-top: -51px;position: relative;top: 27px;text-align: right;padding-right: 10px;left: -106px;border-right-width: thin;      border-right-color: #47484d;      border-right-style: solid;">'+ close +
+        '<div align="right" class="name" style="font-size: medium;height: 17px;margin-top: -51px;position: relative;top: 27px;text-align: right;padding-right: 10px;left: -76px;border-right-width: thin;      border-right-color: #47484d;      border-right-style: solid;">'+ close +
         '</div>'+
-        '<div align="right" class="name" style="font-size: x-large;height: 19px;margin-top: -50px;position: relative;text-align: right;top: 54px;padding-right: 10px;left: -12px;border-right-width: thin;      border-right-color: #47484d;      border-right-style: solid;'+ arrowcolor +'">'+ change +
+        '<div align="right" class="name" style="font-size: medium;height: 19px;margin-top: -50px;position: relative;text-align: right;top: 54px;padding-right: 10px;left: -12px;border-right-width: thin;      border-right-color: #47484d;      border-right-style: solid;'+ arrowcolor +'">'+ change +
         '</div>'+
         '<div class="name" style="position: relative;top: 36px;left: -7px;" align="right">'+
                                
@@ -488,14 +515,16 @@ function showMktlist(){
     //http://localhost:59497/Default.aspx?
     //http://certification.programos.com.ng/goodpage.aspx?
     var coderesult = " ";
+    setTimeout('alertDialogSE.destroy()',10);
     modal.show();
-    $.get("http://certification.programos.com.ng/goodpage.aspx?", function(data, status){
+    $.get("http://localhost:59497/Default.aspx?", function(data, status){
       /// alert("Data: " + data + "\nStatus: " + status);
         
         loginStatus = status.toString();
         
         myarray =  data.split(",");//"/"
         myarray.pop();
+        
          // alert(myarray.length);
             var li = 1;
             var i1 =1;
@@ -503,7 +532,7 @@ function showMktlist(){
                // alert( "Index #" + i + ": " + l );
              var nay = [];
              // var nay2 = [];  
-            nay = l.split(" / ");
+            nay = l.split(" @ ");
                    // nay2 = l.split("  ")
            var code = nay[nay.length-9];
              name = nay[nay.length-8];
@@ -530,8 +559,8 @@ function showMktlist(){
              $("#mylist").append( 
                  
                  '<li id="list"  class="mktlist list__item list__item--tappable" onclick="showMKTdesp('+coderesult+')" style="  border-bottom: 4px solid #171717;">' + 
-                    '<div class="col"> <div id="code" class="name" style="font-size: x-large;font-weight: 800;margin-top: 7px;">' + code + ' </div>' + 
-                     ' <div class="location" style="font-size: medium;height: 35px;position: relative;top: -10px;">' + name + ' </div>' + '<div class="name" style="font-size: small;height: 0px;position: relative;top: -60px;color: #FFB300;text-align: center;/* left: 185px; */">'+ pricedate +'</div>'+
+                    '<div class="col"> <div id="code" class="name" style="font-size: medium;font-weight: 800;margin-top: 7px;position: relative;top: 27px;">' + code + ' </div>' + 
+                     ' <div class="location" style="font-size: medium;height: 35px;position: relative;top: -10px;"> </div>' + '<div class="name" style="font-size: 10px;height: 0px;position: relative;top: -60px;color: #FFB300;text-align: center;/* left: 185px; */">'+ pricedate +'</div>'+
                  ' <div align="right" class="name" style="font-size: x-large;height: 35px;margin-top: -51px;position: relative;top: -9px;">' + mktprice + ' </div>' +
                  '<div align="right" id="symbol" class="name" style="font-size: smaller;'+ arrowcolor +';margin-top: -27px;text-al;">'+' <img src="img/'+ arrows +'" style="width: 17px;margin-right: 4px;margin-top: -10px;top: 5px;position: relative;"/>'+ sign +'</div>' +
                  '</div>' + 
@@ -786,8 +815,8 @@ function showPORTlist(){
              // var nay2 = [];  
             nay = l.split(" / ");
                    // nay2 = l.split("  ")
-           var code = nay[nay.length-11];
-             name = nay[nay.length-10];
+           var code = nay[nay.length-10];
+             ///name = nay[nay.length-9];
             // pricedate = nay[nay.length-7];
             // mktprice = nay[nay.length-6];
             // dcount = nay[nay.length-5];
@@ -813,7 +842,7 @@ function showPORTlist(){
              '<li id="list"  class="mktlist list__item list__item--chevron list__item--tappable" onclick="showPORTdesp('+coderesult+')" style="  border-bottom: 4px solid #171717;">'+
                 '<div class="col"> <div id="code" class="name" style="font-size: large;font-weight: 800;margin-top: 9px;position: relative;top: 4px;"> ' + code + ' </div>'+
                         
-                '<div class="location" style="font-size: medium;height: 26px;position: relative;top: -10px;"> ' + name + ' PLC</div>'+
+                '<div class="location" style="font-size: medium;height: 26px;position: relative;top: -10px;"> </div>'+
                 '<div id="code" class="name" style="font-size: small;margin-top: -23px;margin-right: 31px;position: relative;text-align: right;color: #00B1DC;top: -18px;"> click to view details </div>'+
                      '</div>'+
              '</li>'
@@ -982,7 +1011,7 @@ function showTDlist(){
              coderesult = "'" + td_reference + "'";
            
             // alert(td_date);
-             $("#TD_list").append('<li id="list"  class="mktlist list__item list__item--chevron list__item--tappable" onclick="showTDdesp('+coderesult+')" style="  border-bottom: 4px solid #171717;">'+'<div class="col"> <div id="code" class="name" style="font-size: large;font-weight: 800;margin-top: 9px;position: relative;top: 4px;"> ' + td_reference + ' </div>'+'<div class="location" style="font-size: medium;height: 26px;position: relative;top: -10px;"> ' + td_date + ' PLC</div>'+'<div id="code" class="name" style="font-size: small;margin-top: -23px;margin-right: 31px;position: relative;text-align: right;color: #00B1DC;top: -18px;"> click to view details </div>'+'</div>'+'</li>');
+             $("#TD_list").append('<li id="list"  class="mktlist list__item list__item--chevron list__item--tappable" onclick="showTDdesp('+coderesult+')" style="  border-bottom: 4px solid #171717;">'+'<div class="col"> <div id="code" class="name" style="font-size: 11px;font-weight: 800;margin-top: 9px;position: relative;top: 4px;"> ' + td_reference + ' </div>'+'<div class="location" style="font-size: medium;height: 26px;position: relative;top: -10px;"> ' + td_date + ' </div>'+'<div id="code" class="name" style="font-size: 11px;margin-top: -23px;margin-right: 31px;position: relative;text-align: right;color: #00B1DC;top: -18px;"> click to view details </div>'+'</div>'+'</li>');
                         
          if(loginStatus == "success")
             {
@@ -1114,7 +1143,7 @@ function showPendbuylist(){
              coderesult = "'" + code + "'";
            
             // alert(td_date);
-             $("#pendbuylist").append('<li id="list"  class="mktlist list__item list__item--chevron list__item--tappable" onclick="showpendbuydesp('+coderesult+')" style="  border-bottom: 4px solid #171717;">'+'<div class="col"> <div id="code" class="name" style="font-size: large;font-weight: 800;margin-top: 9px;position: relative;top: 4px;"> ' + code + ' </div>'+'<div class="location" style="font-size: medium;height: 26px;position: relative;top: -10px;"> ' + date + ' PLC</div>'+'<div id="code" class="name" style="font-size: small;margin-top: -23px;margin-right: 31px;position: relative;text-align: right;color: #00B1DC;top: -18px;"> click to view details </div>'+'</div>'+'</li>');
+             $("#pendbuylist").append('<li id="list"  class="mktlist list__item list__item--chevron list__item--tappable" onclick="showpendbuydesp('+coderesult+')" style="  border-bottom: 4px solid #171717;">'+'<div class="col"> <div id="code" class="name" style="font-size: 14px;font-weight: 800;margin-top: 9px;position: relative;top: 4px;"> ' + code + ' </div>'+'<div class="location" style="font-size: medium;height: 26px;position: relative;top: -10px;"> ' + date + ' </div>'+'<div id="code" class="name" style="font-size: small;margin-top: -23px;margin-right: 31px;position: relative;text-align: right;color: #00B1DC;top: -18px;"> click to view details </div>'+'</div>'+'</li>');
                         
          if(loginStatus == "success")
             {
@@ -1229,7 +1258,7 @@ function showPendselllist(){
              coderesult = "'" + code + "'";
            
             // alert(td_date);
-             $("#pendselllist").append('<li id="list"  class="mktlist list__item list__item--chevron list__item--tappable" onclick="showpendselldesp('+coderesult+')" style="  border-bottom: 4px solid #171717;">'+'<div class="col"> <div id="code" class="name" style="font-size: large;font-weight: 800;margin-top: 9px;position: relative;top: 4px;"> ' + code + ' </div>'+'<div class="location" style="font-size: medium;height: 26px;position: relative;top: -10px;"> ' + date + ' PLC</div>'+'<div id="code" class="name" style="font-size: small;margin-top: -23px;margin-right: 31px;position: relative;text-align: right;color: #00B1DC;top: -18px;"> click to view details </div>'+'</div>'+'</li>');
+             $("#pendselllist").append('<li id="list"  class="mktlist list__item list__item--chevron list__item--tappable" onclick="showpendselldesp('+coderesult+')" style="  border-bottom: 4px solid #171717;">'+'<div class="col"> <div id="code" class="name" style="font-size: 14px;font-weight: 800;margin-top: 9px;position: relative;top: 4px;"> ' + code + ' </div>'+'<div class="location" style="font-size: medium;height: 26px;position: relative;top: -10px;"> ' + date + ' </div>'+'<div id="code" class="name" style="font-size: small;margin-top: -23px;margin-right: 31px;position: relative;text-align: right;color: #00B1DC;top: -18px;"> click to view details </div>'+'</div>'+'</li>');
                         
          if(loginStatus == "success")
             {
@@ -1333,8 +1362,8 @@ function showNewslist(){
              $("#myNewslist").append( 
                  
                  '<li class="list__item list__item--chevron list__item--tappable" style="height: 95px;">' + 
-                     '<div class="col" style="margin-top: 0px;margin-left: 0px;width: 100%;"> <div class="name" style="font-size: 18px;font-weight: 700;">' +  newsHeader + ' </div>' + 
-                 ' <div align="left" class="desc" style="font-size: 16px;font-weight: normal;color: #ccc;">' + newsDescription + ' </div></div> <div class="col" style="width:40px;"></div>' + 
+                     '<div class="col" style="margin-top: 0px;margin-left: 0px;width: 90%;"> <div class="name" style="font-size: 14px;font-weight: 700;">' +  newsHeader + ' </div>' + 
+                 ' <div align="left" class="desc" style="font-size: 12px;font-weight: normal;color: #ccc;">' + newsDescription + ' </div></div> <div class="col" style="width:40px;"></div>' + 
                  ' </li>'
                 
                 
@@ -1359,7 +1388,49 @@ function showNewslist(){
 
 ////////////  Display Stoke Exchange List   ///////////////////
 function showSE(){
+    var coderesult = " ";
+  
+   modalPW.show();
+    setTimeout('exchangeShowlist();',3000);
     
+}
+function exchangeShowlist(){
+    //alert("hfhdgdf");
+    alertDialogSE.show();
+    $.get("http://localhost:59497/exchange.aspx?", function(data, status){
+      /// alert("Data: " + data + "\nStatus: " + status);
+        
+        loginStatus = status.toString();
+        
+        myarray =  data.split(",");//"/"
+        myarray.pop();
+        
+         // alert(myarray.length);
+            var li = 1;
+            var i1 =1;
+         $.each(  myarray, function( i, l ){
+               // alert( "Index #" + i + ": " + l );
+            var nay = [];
+            nay = l.split(" / ");
+             
+             
+           var exchange_name = nay[nay.length-2];
+             var exchange_function = nay[nay.length-1];
+    $("#exchangelist").append('<li class="list__item" style="border: none;width: 100%;margin-bottom: 8px;"><button onclick="'+ exchange_function +'" class="button button--large--cta">'+ exchange_name +'</button></li>');
+             
+             
+              if(loginStatus == "success")
+            {
+                
+                setTimeout('modalPW.hide()',1000);
+                //alertDialogSE.show();
+            //setTimeout('alertDialogSE.hide()',1000);
+                loginStatus = " ";
+            }else{  }
+         });
+        
+         
+    });
     
 }
 function  showSigIn(){
@@ -1573,10 +1644,76 @@ function DBgetName(){
     //setTimeout('setBrokerName()',100);
       $(".pg_SignInToBrokerNm").html(selected_broker); $("#pg_SignInToBrokerlogo").attr("src",selected_broker_img);
 }
-function setDBBrokerName(){
+
+
+
+function showBrokerlist(){
+    modalPW.show();
+    setTimeout('alert-dialog.show;',2000);
+    
+}
+var im;
+var na;
+var fn;
+function displayBrokerlist(){
+    ng = " 'slide' ";
+    ng2 = " 'brokerSignIn.html' "
+     $.get("http://localhost:59497/brokerlist.aspx?", function(data, status){
+      /// alert("Data: " + data + "\nStatus: " + status);
+        
+        loginStatus = status.toString();
+        
+        myarray =  data.split(",");//"/"
+        myarray.pop();
+        
+         // alert(myarray.length);
+            var li = 1;
+            var i1 =1;
+         $.each(  myarray, function( i, l ){
+               // alert( "Index #" + i + ": " + l );
+            var nay = [];
+            nay = l.split(" @ ");
+             
+             
+           var broker_logo = nay[nay.length-2];
+             var broker_name = nay[nay.length-1];
+             //setTimeout('+ fn +',100)
+            im = "'" + broker_logo + "'";
+             na = "'" + broker_name + "'";
+             fn = " 'getBrokerNameImg("+ na +","+ im +")' ";
+    $("#brokerslist").append('<li class="list__item list__item--chevron list__item--tappable"  style="border: none;width: 100%;margin-bottom: 8px;" onclick="navigatorSI.pushPage('+ ng2 +', { animation : '+ ng +' });getBrokerNameImg('+na+','+im+');"><div class="list-item-left"> <img src="'+ broker_logo +'" class="avator"></div>'+
+        ' <div class="list-item-right">'+
+                             
+        '<div class="list-item-content"><span  class="desc" style="font-size:12px;">'+ broker_name +'</span></div> </div> </li>');
+             
+             
+              if(loginStatus == "success")
+            {
+                
+                setTimeout('modalPW.hide()',1000);
+                //alertDialogSE.show();
+            //setTimeout('alertDialogSE.hide()',1000);
+                loginStatus = " ";
+            }else{  }
+         });
+        
+         
+    });
+    
+}
+var  selected_broker;
+var selected_broker_img;
+function getBrokerNameImg(na,imgs){
+    
+    selected_broker = na;
+   selected_broker_img = imgs;
+    setTimeout('setBrokerNameImg()',200); 
     
     
-    
+}
+function setBrokerNameImg(){
+    $(".pg_SignInToBrokerNm").html(selected_broker);
+    $("#pg_SignInToBrokerlogo").attr("src",selected_broker_img);
 }
 ///////////////////////////////////////////////////
 
@@ -1585,6 +1722,23 @@ function aboutphone(){
     
     document.location.href = 'tel:+1-800-555-1234';
     
+}
+function aboutfacebook(){
+    
+    
+    window.open('http://www.facebook.com/chiako3D', '_system');
+}
+function abouttwitter(){
+    
+    window.open('http://www.twitter.com/@chiako_cgi_gman', '_system');
+}
+function aboutemail(){
+    
+    window.open('mailto:?subject=subject of the email&body=whatever body body" target="_blank','system');
+}
+function aboutwebsite(){
+    
+    window.open('http://www.programos.com.ng','system');
 }
 /////////////////////////////////////
 

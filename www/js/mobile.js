@@ -1,19 +1,24 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
-document.addEventListener("online", onOnline, false);
+
+
+function onDeviceReady() {
+ document.addEventListener("online", onOnline, false);
 
 document.addEventListener("offline", onOffline, false);
 
-document.addEventListener("backbutton", backKeyDown, true);
-
-function onDeviceReady() {
- 
+document.addEventListener("backbutton", onBackKeyDown, false);
+    
+    
 }
 
 function onOnline() {
    
     console.log(device.cordova);
 }
+
+
+
 function onOffline() {
      navigator.notification.alert(
     'Could not access the internet, check internet settings!',  // message
@@ -25,7 +30,7 @@ function onOffline() {
     
 }
 
-function backKeyDown() { 
+function onbackKeyDown() { 
     // do something here if you wish
     // alert('go back!');
     
